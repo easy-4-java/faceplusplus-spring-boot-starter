@@ -15,7 +15,7 @@ Face++作为新一代人工智能开放平台，为开发者提供人脸识别�
 
 ``` xml
 <dependency>
-	<groupId>com.github.hiwepy</groupId>
+	<groupId>io.github.easy4j</groupId>
 	<artifactId>faceplusplus-spring-boot-starter</artifactId>
 	<version>${project.version}</version>
 </dependency>
