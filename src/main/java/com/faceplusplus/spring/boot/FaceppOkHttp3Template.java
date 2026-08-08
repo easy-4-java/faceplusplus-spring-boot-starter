@@ -34,11 +34,17 @@ import java.util.function.BiFunction;
 import java.util.function.Consumer;
 
 /**
- * OkHttp3 常规请求模板
+ * OkHttp3 request template for the Face++ HTTP API.
  *
  * @author [@Loong Wan](https://github.com/loong10k)
  */
 @Slf4j
+/**
+ * OkHttp3 request template for the Face++ HTTP API.
+ *
+ * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 1.0.0
+ */
 public class FaceppOkHttp3Template implements InitializingBean {
 
 	public final static String APPLICATION_JSON_VALUE = "application/json";
@@ -60,9 +66,9 @@ public class FaceppOkHttp3Template implements InitializingBean {
 
 	@Override
 	public void afterPropertiesSet() throws Exception {
-		// 请求编码，默认：UTF-8
+		// Request encoding; default UTF-8.
 		if (okhttp3Client == null) {
-			// 1.创建OkHttpClient对象
+			// 1. Create the OkHttpClient instance.
 			okhttp3Client = new OkHttpClient().newBuilder().connectTimeout(5000, TimeUnit.MILLISECONDS)
 					// .hostnameVerifier(okhttpHostnameVerifier)
 					// .followRedirects(properties.isFollowRedirects())
@@ -115,7 +121,7 @@ public class FaceppOkHttp3Template implements InitializingBean {
 			Map<String, Object> bodyContent,
 			Class<T> rtClass) throws IOException {
 		long startTime = System.currentTimeMillis();
-		// 1.创建Request对象，设置一个url地址,设置请求方式。
+		// 1. Create the Request with the URL and HTTP method.
 		HttpUrl httpUrl = this.getHttpUrl(url, queryParams);
 		return this.doRequest(startTime, httpUrl, method, headers, bodyContent, rtClass);
 	}
@@ -127,7 +133,7 @@ public class FaceppOkHttp3Template implements InitializingBean {
 			Map<String, Object> headers,
 			Map<String, Object> bodyContent,
 			Class<T> rtClass) throws IOException {
-		// 2.创建一个call对象,参数就是Request请求对象
+		// 2. Create a Call from the Request.
 		Response response = this.doRequest(startTime, httpUrl, method, headers, bodyContent);
 		T res = null;
 		try {
@@ -184,7 +190,7 @@ public class FaceppOkHttp3Template implements InitializingBean {
 			Map<String, Object> headers,
 			Map<String, Object> queryParams,
 			Map<String, Object> bodyContent) throws IOException {
-		// 1.创建Request对象，设置一个url地址,设置请求方式。
+		// 1. Create the Request with the URL and HTTP method.
 		HttpUrl httpUrl = this.getHttpUrl(url, queryParams);
 		return this.doRequest(startTime, httpUrl, method, headers, bodyContent);
 	}
@@ -195,7 +201,7 @@ public class FaceppOkHttp3Template implements InitializingBean {
 			Class<T> rtClass) throws IOException {
 
 		long startTime = System.currentTimeMillis();
-		// 2.创建一个call对象,参数就是Request请求对象
+		// 2. Create a Call from the Request.
 		Response response = this.doPartRequest(startTime, httpUrl, params);
 		T res = null;
 		try {
@@ -219,9 +225,9 @@ public class FaceppOkHttp3Template implements InitializingBean {
 			String httpUrl,
 			Map<String, Object> params) throws IOException {
 
-		// 1、创建Request.Builder对象
+		// 1. Create the Request.Builder.
 		Request.Builder builder = new Request.Builder().url(httpUrl);
-		// 2、构建MultipartBody
+		// 2. Build the MultipartBody.
 		MultipartBody.Builder bodyBuilder = new MultipartBody.Builder().setType(MultipartBody.FORM);
 		for (Map.Entry<String, Object> entry : params.entrySet()){
 			Object val = entry.getValue();
@@ -233,7 +239,7 @@ public class FaceppOkHttp3Template implements InitializingBean {
 				bodyBuilder.addFormDataPart(entry.getKey(), Objects.toString(entry.getValue()) );
 			}
 		}
-		// 3.创建一个call对象, 参数就是Request请求对象
+		// 3. Create a Call from the Request.
 		try {
 			Response response = okhttp3Client.newCall(builder.post(bodyBuilder.build()).build()).execute();
 			if (response.isSuccessful()) {
@@ -255,9 +261,9 @@ public class FaceppOkHttp3Template implements InitializingBean {
 			Map<String, Object> headers,
 			Map<String, Object> bodyContent) throws IOException {
 		try {
-			// 1、创建Request.Builder对象
+			// 1. Create the Request.Builder.
 			Request.Builder builder = this.createRequestBuilder(httpUrl, method, headers, bodyContent);
-			// 2.创建一个call对象, 参数就是Request请求对象
+			// 2. Create a Call from the Request.
 			Response response = okhttp3Client.newCall(builder.build()).execute();
 			if (response.isSuccessful()) {
 				log.info("Agora >> Request Success : code : {}, use time : {} ", response.code(), System.currentTimeMillis() - startTime);
@@ -319,7 +325,7 @@ public class FaceppOkHttp3Template implements InitializingBean {
 			BiFunction<Call, IOException, Boolean> failure,
 			Class<T> rtClass) throws IOException {
 		long startTime = System.currentTimeMillis();
-		// 1.创建Request对象，设置一个url地址,设置请求方式。
+		// 1. Create the Request with the URL and HTTP method.
 		HttpUrl httpUrl = this.getHttpUrl(url, queryParams);
 		this.doAsyncRequest(startTime, httpUrl, method, headers, bodyContent, success, failure, rtClass);
 	}
@@ -333,7 +339,7 @@ public class FaceppOkHttp3Template implements InitializingBean {
 			Consumer<T> success,
 			BiFunction<Call, IOException, Boolean> failure,
 			Class<T> rtClass) throws IOException {
-		// 2.创建一个call对象,参数就是Request请求对象
+		// 2. Create a Call from the Request.
 		this.doAsyncRequest(startTime, httpUrl, method, headers, bodyContent, (call, response) -> {
 			T res;
 			try {
@@ -363,7 +369,7 @@ public class FaceppOkHttp3Template implements InitializingBean {
 			Map<String, Object> bodyContent,
 			BiFunction<Call, Response, T> success,
 			BiFunction<Call, IOException, Boolean> failure) throws IOException {
-		// 1.创建Request对象，设置一个url地址,设置请求方式。
+		// 1. Create the Request with the URL and HTTP method.
 		HttpUrl httpUrl = this.getHttpUrl(url, queryParams);
 		this.doAsyncRequest(startTime, httpUrl, method, headers, bodyContent, success, failure);
 	}
@@ -376,9 +382,9 @@ public class FaceppOkHttp3Template implements InitializingBean {
 			Map<String, Object> bodyContent,
 			BiFunction<Call, Response, T> success,
 			BiFunction<Call, IOException, Boolean> failure) throws IOException {
-		// 1、创建Request.Builder对象
+		// 1. Create the Request.Builder.
 		Request.Builder builder = this.createRequestBuilder(httpUrl, method, headers, bodyContent);
-		// 2.创建一个call对象,参数就是Request请求对象
+		// 2. Create a Call from the Request.
 		okhttp3Client.newCall(builder.build()).enqueue(new Callback() {
 
 			@Override
@@ -426,16 +432,16 @@ public class FaceppOkHttp3Template implements InitializingBean {
 												  Map<String, Object> headers,
 												  Map<String, Object> bodyContent) throws IOException{
 		log.info("Agora >> Request Query Url : {} , Method : {}", httpUrl.query() , method.getName());
-		// 1、创建Request.Builder对象
+		// 1. Create the Request.Builder.
 		Request.Builder builder = new Request.Builder().url(httpUrl);
-		// 2、添加请求头
+		// 2. Add request headers.
 		if(Objects.nonNull(headers)) {
 			log.info("Agora >> Request Headers : {}", headers);
 			for (Entry<String, Object> entry : headers.entrySet()) {
 				builder.addHeader(entry.getKey(), String.valueOf(entry.getValue()));
 			}
 		}
-		// 3、添加请求体
+		// 3. Add the request body.
 		if(Objects.nonNull(bodyContent)) {
 			String bodyStr = objectMapper.writeValueAsString(bodyContent);
 			log.info("Agora >> Request Body : {}", bodyStr);

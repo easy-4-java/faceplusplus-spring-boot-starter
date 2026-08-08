@@ -24,23 +24,25 @@ import java.io.IOException;
 import java.util.Map;
 
 /**
- * 1、
- */
-public class FaceppFaceOperations extends FaceppOperations {
+ * Face recognition operations.
+ *
+ * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 1.0.0
+ */public class FaceppFaceOperations extends FaceppOperations {
 
 	public FaceppFaceOperations(FaceppTemplate faceppTemplate) {
 		super(faceppTemplate);
 	}
 
 	/**
-	 * 1、人脸识别 > 人脸检测 API
-	 * 传入图片进行人脸检测和人脸分析。
-	 * 可以检测图片内的所有人脸，对于每个检测出的人脸，会给出其唯一标识 face_token，可用于后续的人脸分析、人脸比对等操作。对于正式 API Key，支持指定图片的某一区域进行人脸检测。
-	 * 本 API 支持对检测到的人脸直接进行分析，获得人脸的关键点和各类属性信息。对于试用 API Key，最多只对人脸框面积最大的 5 个人脸进行分析，其他检测到的人脸可以使用 Face Analyze API 进行分析。对于正式 API Key，支持分析所有检测到的人脸。
+	 * Face recognition > Face Detect API.
+	 * Detects faces and analyses the given image.
+	 * Detects all faces in the image and returns a unique face_token for each, usable for later analysis/comparison. Production API keys support detecting faces within a specified region.
+	 * The API can also analyse detected faces, returning landmarks and attributes. Trial API keys analyse at most the 5 largest faces; other detected faces can be analysed via the Face Analyze API. Production API keys analyse all detected faces.
 	 * API：https://console.faceplusplus.com.cn/documents/4888373
-	 * @param imageUrl 图片的 URL。注：在下载图片时可能由于网络等原因导致下载图片时间过长，建议使用 image_file 或 image_base64 参数直接上传图片
-	 * @param options 可选参数
-	 * @return 操作结果
+	 * @param imageUrl Image URL. Downloading may be slow due to network latency, so image_file or image_base64 is recommended.
+	 * @param options optional parameters
+	 * @return the operation result
 	 */
 	public FaceDetectResponse detectUrl(String imageUrl, FaceDetectOptions options) throws IOException {
 		String reqUrl = FaceppApiAddress.FACE_DETECT.getUrl();
@@ -55,14 +57,14 @@ public class FaceppFaceOperations extends FaceppOperations {
 	}
 
 	/**
-	 * 2、人脸识别 > 人脸检测 API
-	 * 传入图片进行人脸检测和人脸分析。
-	 * 可以检测图片内的所有人脸，对于每个检测出的人脸，会给出其唯一标识 face_token，可用于后续的人脸分析、人脸比对等操作。对于正式 API Key，支持指定图片的某一区域进行人脸检测。
-	 * 本 API 支持对检测到的人脸直接进行分析，获得人脸的关键点和各类属性信息。对于试用 API Key，最多只对人脸框面积最大的 5 个人脸进行分析，其他检测到的人脸可以使用 Face Analyze API 进行分析。对于正式 API Key，支持分析所有检测到的人脸。
+	 * 2. Face recognition > Face Detect API.
+	 * Detects faces and analyses the given image.
+	 * Detects all faces in the image and returns a unique face_token for each, usable for later analysis/comparison. Production API keys support detecting faces within a specified region.
+	 * The API can also analyse detected faces, returning landmarks and attributes. Trial API keys analyse at most the 5 largest faces; other detected faces can be analysed via the Face Analyze API. Production API keys analyse all detected faces.
 	 * API：https://console.faceplusplus.com.cn/documents/4888373
-	 * @param imageBase64 图片的 URL。注：在下载图片时可能由于网络等原因导致下载图片时间过长，建议使用 image_file 或 image_base64 参数直接上传图片
-	 * @param options 可选参数
-	 * @return 操作结果
+	 * @param imageBase64 Image URL. Downloading may be slow due to network latency, so image_file or image_base64 is recommended.
+	 * @param options optional parameters
+	 * @return the operation result
 	 */
 	public FaceDetectResponse detectBase64(String imageBase64, FaceDetectOptions options) throws IOException {
 		String reqUrl = FaceppApiAddress.FACE_DETECT.getUrl();
@@ -77,14 +79,14 @@ public class FaceppFaceOperations extends FaceppOperations {
 	}
 
 	/**
-	 * 3、人脸识别 > 人脸检测 API
-	 * 传入图片进行人脸检测和人脸分析。
-	 * 可以检测图片内的所有人脸，对于每个检测出的人脸，会给出其唯一标识 face_token，可用于后续的人脸分析、人脸比对等操作。对于正式 API Key，支持指定图片的某一区域进行人脸检测。
-	 * 本 API 支持对检测到的人脸直接进行分析，获得人脸的关键点和各类属性信息。对于试用 API Key，最多只对人脸框面积最大的 5 个人脸进行分析，其他检测到的人脸可以使用 Face Analyze API 进行分析。对于正式 API Key，支持分析所有检测到的人脸。
+	 * 3. Face recognition > Face Detect API.
+	 * Detects faces and analyses the given image.
+	 * Detects all faces in the image and returns a unique face_token for each, usable for later analysis/comparison. Production API keys support detecting faces within a specified region.
+	 * The API can also analyse detected faces, returning landmarks and attributes. Trial API keys analyse at most the 5 largest faces; other detected faces can be analysed via the Face Analyze API. Production API keys analyse all detected faces.
 	 * API：https://console.faceplusplus.com.cn/documents/4888373
-	 * @param imageFile 图片的 URL。注：在下载图片时可能由于网络等原因导致下载图片时间过长，建议使用 image_file 或 image_base64 参数直接上传图片
-	 * @param options 可选参数
-	 * @return 操作结果
+	 * @param imageFile Image URL. Downloading may be slow due to network latency, so image_file or image_base64 is recommended.
+	 * @param options optional parameters
+	 * @return the operation result
 	 */
 	public FaceDetectResponse detectFile(File imageFile, FaceDetectOptions options) throws IOException {
 		String reqUrl = FaceppApiAddress.FACE_DETECT.getUrl();
@@ -99,12 +101,12 @@ public class FaceppFaceOperations extends FaceppOperations {
 	}
 
 	/**
-	 * 4、人脸识别 > 人脸分析 API
-	 * 传入在人脸检测 API 检测出的人脸标识 face_token，分析得出人脸关键点，人脸属性信息。一次调用最多支持分析 5 个人脸
+	 * 4. Face recognition > Face Analyze API.
+	 * Analyses the landmarks and attributes of faces identified by face_token from the Detect API. Up to 5 faces per call.
 	 * API：https://console.faceplusplus.com.cn/documents/4888383
-	 * @param faceTokens 一个字符串，由一个或多个人脸标识组成，用逗号分隔。最多支持 5 个 face_token
-	 * @param options 可选参数
-	 * @return 操作结果
+	 * @param faceTokens Comma-separated string of one or more face_tokens (up to 5).
+	 * @param options optional parameters
+	 * @return the operation result
 	 */
 	public FaceAnalyzeResponse analyze(String[] faceTokens, FaceAnalyzeOptions options) throws IOException {
 		String reqUrl = FaceppApiAddress.FACE_ANALYZE.getUrl();
@@ -119,13 +121,13 @@ public class FaceppFaceOperations extends FaceppOperations {
 	}
 
 	/**
-	 * 5、人脸识别 > 人脸比对 API
-	 * 将两个人脸进行比对，来判断是否为同一个人，返回比对结果置信度和不同误识率下的阈值。
-	 * 支持传入图片或 face_token 进行比对。使用图片时会自动选取图片中检测到人脸尺寸最大的一个人脸
+	 * 5. Face recognition > Face Compare API.
+	 * Compares two faces to decide whether they are the same person, returning a confidence value and thresholds at different false-accept rates.
+	 * Accepts images or face_tokens. When an image is provided the largest detected face is used.
 	 * API：https://console.faceplusplus.com.cn/documents/4887586
-	 * @param imageUrl1 第一张图片的 URL
-	 * @param imageUrl2 第二张图片的 URL
-	 * @return 操作结果
+	 * @param imageUrl1 URL of the first image.
+	 * @param imageUrl2 URL of the second image.
+	 * @return the operation result
 	 */
 	public FaceCompareResponse compareUrl(String imageUrl1, String imageUrl2) throws IOException {
 		String reqUrl = FaceppApiAddress.FACE_COMPARE.getUrl();
@@ -140,13 +142,13 @@ public class FaceppFaceOperations extends FaceppOperations {
 	}
 
 	/**
-	 * 5、人脸识别 > 人脸比对 API
-	 * 将两个人脸进行比对，来判断是否为同一个人，返回比对结果置信度和不同误识率下的阈值。
-	 * 支持传入图片或 face_token 进行比对。使用图片时会自动选取图片中检测到人脸尺寸最大的一个人脸
+	 * 5. Face recognition > Face Compare API.
+	 * Compares two faces to decide whether they are the same person, returning a confidence value and thresholds at different false-accept rates.
+	 * Accepts images or face_tokens. When an image is provided the largest detected face is used.
 	 * API：https://console.faceplusplus.com.cn/documents/4887586
-	 * @param faceToken1 第一个人脸标识 face_token，优先使用该参数
-	 * @param faceToken2 第二个人脸标识 face_token，优先使用该参数
-	 * @return 操作结果
+	 * @param faceToken1 First face_token to compare; takes priority over image parameters.
+	 * @param faceToken2 Second face_token to compare; takes priority over image parameters.
+	 * @return the operation result
 	 */
 	public FaceCompareResponse compareToken(String faceToken1, String faceToken2) throws IOException {
 		String reqUrl = FaceppApiAddress.FACE_COMPARE.getUrl();
@@ -161,13 +163,13 @@ public class FaceppFaceOperations extends FaceppOperations {
 	}
 
 	/**
-	 * 5、人脸识别 > 人脸比对 API
-	 * 将两个人脸进行比对，来判断是否为同一个人，返回比对结果置信度和不同误识率下的阈值。
-	 * 支持传入图片或 face_token 进行比对。使用图片时会自动选取图片中检测到人脸尺寸最大的一个人脸
+	 * 5. Face recognition > Face Compare API.
+	 * Compares two faces to decide whether they are the same person, returning a confidence value and thresholds at different false-accept rates.
+	 * Accepts images or face_tokens. When an image is provided the largest detected face is used.
 	 * API：https://console.faceplusplus.com.cn/documents/4887586
-	 * @param imageBase64_1 base64 编码的二进制图片数据；如果同时传入了 image_url1、image_file1 和 image_base64_1 参数，本 API 使用顺序为image_file1 优先，image_url1 最低
-	 * @param imageBase64_2 base64 编码的二进制图片数据；如果同时传入了 image_url2、image_file2 和 image_base64_2 参数，本API 使用顺序为 image_file2优先，image_url2 最低。
-	 * @return 操作结果
+	 * @param imageBase64_1 Base64-encoded image data. When image_url1/image_file1/image_base64_1 are all provided, image_file1 takes priority and image_url1 the lowest.
+	 * @param imageBase64_2 Base64-encoded image data. When image_url2/image_file2/image_base64_2 are all provided, image_file2 takes priority and image_url2 the lowest.
+	 * @return the operation result
 	 */
 	public FaceCompareResponse compareBase64(String imageBase64_1, String imageBase64_2) throws IOException {
 		String reqUrl = FaceppApiAddress.FACE_DETECT.getUrl();
@@ -182,13 +184,13 @@ public class FaceppFaceOperations extends FaceppOperations {
 	}
 
 	/**
-	 * 5、人脸识别 > 人脸比对 API
-	 * 将两个人脸进行比对，来判断是否为同一个人，返回比对结果置信度和不同误识率下的阈值。
-	 * 支持传入图片或 face_token 进行比对。使用图片时会自动选取图片中检测到人脸尺寸最大的一个人脸
+	 * 5. Face recognition > Face Compare API.
+	 * Compares two faces to decide whether they are the same person, returning a confidence value and thresholds at different false-accept rates.
+	 * Accepts images or face_tokens. When an image is provided the largest detected face is used.
 	 * API：https://console.faceplusplus.com.cn/documents/4887586
-	 * @param imageFile1 第一张图片，二进制文件，需要用 post multipart/form-data 的方式上传
-	 * @param imageFile2 第二张图片，二进制文件，需要用 post multipart/form-data 的方式上传
-	 * @return 操作结果
+	 * @param imageFile1 First binary image file; uploaded as multipart/form-data.
+	 * @param imageFile2 Second binary image file; uploaded as multipart/form-data.
+	 * @return the operation result
 	 */
 	public FaceCompareResponse compareFile(File imageFile1, File imageFile2) throws IOException {
 		String reqUrl = FaceppApiAddress.FACE_COMPARE.getUrl();
@@ -203,13 +205,13 @@ public class FaceppFaceOperations extends FaceppOperations {
 	}
 
 	/**
-	 * 5、人脸识别 > 人脸搜索 API
-	 * 在一个已有的 FaceSet 中找出与目标人脸最相似的一张或多张人脸，返回置信度和不同误识率下的阈值。
-	 * 支持传入图片或 face_token 进行人脸搜索。使用图片进行搜索时会选取图片中检测到人脸尺寸最大的一个人脸。
+	 * 5. Face recognition > Face Search API.
+	 * Finds the most similar face(s) to the target face within an existing FaceSet, returning confidence and thresholds at different false-accept rates.
+	 * Accepts images or face_tokens. When an image is provided the largest detected face is used.
 	 * API：https://console.faceplusplus.com.cn/documents/4888381
-	 * @param imageUrl 目标人脸所在的图片的 URL
-	 * @param options 可选参数
-	 * @return 操作结果
+	 * @param imageUrl URL of the image containing the target face.
+	 * @param options optional parameters
+	 * @return the operation result
 	 */
 	public FaceSearchResponse searchUrl(String imageUrl, FaceSearchOptions options) throws IOException {
 		String reqUrl = FaceppApiAddress.FACE_COMPARE.getUrl();
@@ -224,13 +226,13 @@ public class FaceppFaceOperations extends FaceppOperations {
 	}
 
 	/**
-	 * 5、人脸识别 > 人脸搜索 API
-	 * 在一个已有的 FaceSet 中找出与目标人脸最相似的一张或多张人脸，返回置信度和不同误识率下的阈值。
-	 * 支持传入图片或 face_token 进行人脸搜索。使用图片进行搜索时会选取图片中检测到人脸尺寸最大的一个人脸。
+	 * 5. Face recognition > Face Search API.
+	 * Finds the most similar face(s) to the target face within an existing FaceSet, returning confidence and thresholds at different false-accept rates.
+	 * Accepts images or face_tokens. When an image is provided the largest detected face is used.
 	 * API：https://console.faceplusplus.com.cn/documents/4888381
-	 * @param faceToken 进行搜索的目标人脸的 face_token，优先使用该参数
-	 * @param options 可选参数
-	 * @return 操作结果
+	 * @param faceToken Target face_token to search; takes priority over image parameters.
+	 * @param options optional parameters
+	 * @return the operation result
 	 */
 	public FaceSearchResponse searchToken(String faceToken, FaceSearchOptions options) throws IOException {
 		String reqUrl = FaceppApiAddress.FACE_COMPARE.getUrl();
@@ -245,13 +247,13 @@ public class FaceppFaceOperations extends FaceppOperations {
 	}
 
 	/**
-	 * 5、人脸识别 > 人脸搜索 API
-	 * 在一个已有的 FaceSet 中找出与目标人脸最相似的一张或多张人脸，返回置信度和不同误识率下的阈值。
-	 * 支持传入图片或 face_token 进行人脸搜索。使用图片进行搜索时会选取图片中检测到人脸尺寸最大的一个人脸。
+	 * 5. Face recognition > Face Search API.
+	 * Finds the most similar face(s) to the target face within an existing FaceSet, returning confidence and thresholds at different false-accept rates.
+	 * Accepts images or face_tokens. When an image is provided the largest detected face is used.
 	 * API：https://console.faceplusplus.com.cn/documents/4888381
-	 * @param imageBase64 base64 编码的二进制图片数据；如果同时传入了 image_url、image_file 和 image_base64 参数，本 API 使用顺序为 image_file 优先，image_url 最低。
-	 * @param options 可选参数
-	 * @return 操作结果
+	 * @param imageBase64 Base64-encoded image data. When image_url/image_file/image_base64 are all provided, image_file takes priority and image_url the lowest.
+	 * @param options optional parameters
+	 * @return the operation result
 	 */
 	public FaceSearchResponse searchBase64(String imageBase64, FaceSearchOptions options) throws IOException {
 		String reqUrl = FaceppApiAddress.FACE_DETECT.getUrl();
@@ -266,13 +268,13 @@ public class FaceppFaceOperations extends FaceppOperations {
 	}
 
 	/**
-	 * 5、人脸识别 > 人脸搜索 API
-	 * 在一个已有的 FaceSet 中找出与目标人脸最相似的一张或多张人脸，返回置信度和不同误识率下的阈值。
-	 * 支持传入图片或 face_token 进行人脸搜索。使用图片进行搜索时会选取图片中检测到人脸尺寸最大的一个人脸。
+	 * 5. Face recognition > Face Search API.
+	 * Finds the most similar face(s) to the target face within an existing FaceSet, returning confidence and thresholds at different false-accept rates.
+	 * Accepts images or face_tokens. When an image is provided the largest detected face is used.
 	 * API：https://console.faceplusplus.com.cn/documents/4888381
-	 * @param imageFile 目标人脸所在的图片，二进制文件，需要用 post multipart/form-data 的方式上传
-	 * @param options 可选参数
-	 * @return 操作结果
+	 * @param imageFile Binary image file containing the target face; uploaded as multipart/form-data.
+	 * @param options optional parameters
+	 * @return the operation result
 	 */
 	public FaceSearchResponse searchFile(File imageFile, FaceSearchOptions options) throws IOException {
 		String reqUrl = FaceppApiAddress.FACE_SEARCH.getUrl();
@@ -287,12 +289,12 @@ public class FaceppFaceOperations extends FaceppOperations {
 	}
 
 	/**
-	 * 5、人脸识别 > 皮肤分析-基础版 API
-	 * 该API可对人脸图片，进行面部皮肤状态检测分析
+	 * 5. Face recognition > Skin analysis (basic) API.
+	 * Detects and analyses the facial skin condition of the given image.
 	 * API：https://console.faceplusplus.com.cn/documents/119745378
-	 * @param imageUrl 目标人脸所在的图片的 URL
-	 * @param options 可选参数
-	 * @return 操作结果
+	 * @param imageUrl URL of the image containing the target face.
+	 * @param options optional parameters
+	 * @return the operation result
 	 */
 	public FaceSkinAnalyzeResponse skinAnalyzeUrl(String imageUrl, SkinAnalyzeType type, SkinAnalyzeOptions options) throws IOException {
 		String reqUrl = type.getApiAddress().getUrl();
@@ -307,12 +309,12 @@ public class FaceppFaceOperations extends FaceppOperations {
 	}
 
 	/**
-	 * 5、人脸识别 > 皮肤分析-基础版 API
-	 * 该API可对人脸图片，进行面部皮肤状态检测分析
+	 * 5. Face recognition > Skin analysis (basic) API.
+	 * Detects and analyses the facial skin condition of the given image.
 	 * API：https://console.faceplusplus.com.cn/documents/119745378
-	 * @param imageBase64 base64 编码的二进制图片数据；如果同时传入了 image_url、image_file 和 image_base64 参数，本 API 使用顺序为 image_file 优先，image_url 最低。
-	 * @param options 可选参数
-	 * @return 操作结果
+	 * @param imageBase64 Base64-encoded image data. When image_url/image_file/image_base64 are all provided, image_file takes priority and image_url the lowest.
+	 * @param options optional parameters
+	 * @return the operation result
 	 */
 	public FaceSkinAnalyzeResponse skinAnalyzeBase64(String imageBase64, SkinAnalyzeType type, SkinAnalyzeOptions options) throws IOException {
 		String reqUrl = type.getApiAddress().getUrl();
@@ -327,12 +329,12 @@ public class FaceppFaceOperations extends FaceppOperations {
 	}
 
 	/**
-	 * 5、人脸识别 > 皮肤分析-基础版 API
-	 * 该API可对人脸图片，进行面部皮肤状态检测分析
+	 * 5. Face recognition > Skin analysis (basic) API.
+	 * Detects and analyses the facial skin condition of the given image.
 	 * API：https://console.faceplusplus.com.cn/documents/119745378
-	 * @param imageFile 目标人脸所在的图片，二进制文件，需要用 post multipart/form-data 的方式上传
-	 * @param options 可选参数
-	 * @return 操作结果
+	 * @param imageFile Binary image file containing the target face; uploaded as multipart/form-data.
+	 * @param options optional parameters
+	 * @return the operation result
 	 */
 	public FaceSkinAnalyzeResponse skinAnalyzeFile(File imageFile, SkinAnalyzeType type, SkinAnalyzeOptions options) throws IOException {
 		String reqUrl = type.getApiAddress().getUrl();

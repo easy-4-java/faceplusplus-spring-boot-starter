@@ -6,45 +6,51 @@ import lombok.Data;
 
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
+/**
+ * Model class for FaceAttributes.
+ *
+ * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 1.0.0
+ */
 public class FaceAttributes {
 
     /**
-     * 性别分析结果。返回值为：
-     * Male	男性
-     * Female 女性
+     * Gender analysis result. Values:
+     * Male.
+     * Female.
      */
     @JsonProperty("gender")
     private FaceAttrValue gender;
 
     /**
-     * 年龄分析结果。返回值为一个非负整数。
+     * Age analysis result (a non-negative integer).
      */
     @JsonProperty("age")
     private FaceAttrValue age;
 
     /**
-     * 笑容分析结果。返回值包含以下属性：
-     *     value：值为一个 [0,100] 的浮点数，小数点后3位有效数字。数值越大表示笑程度高。
-     *     threshold：代表笑容的阈值，超过该阈值认为有笑容。
+     * Smile analysis result. Contains:
+     *     value: float in [0,100] (3 decimals); higher means a bigger smile.
+     *     threshold: smile threshold above which a smile is detected.
      */
     @JsonProperty("smile")
     private FaceAttrSmile smile;
 
     /**
-     * 人脸姿势分析结果。返回值包含以下属性，每个属性的值为一个 [-180, 180] 的浮点数，小数点后 6 位有效数字。单位为角度。
-     * pitch_angle：抬头
-     * roll_angle：旋转（平面旋转）
-     * yaw_angle：摇头
+     * Head-pose analysis result. Each attribute is a float in [-180,180] (6 decimals) in degrees.
+     * pitch_angle: pitch (looking up/down).
+     * roll_angle: roll (in-plane rotation).
+     * yaw_angle: yaw (turning left/right).
      */
     @JsonProperty("headpose")
     private FaceAttrHeadpose headpose;
 
     /**
-     * 人脸模糊分析结果。返回值包含以下属性：
-     *     blurness：人脸模糊分析结果。
-     * 每个属性都包含以下字段：
-     *     value 的值为是一个浮点数，范围 [0,100]，小数点后 3 位有效数字。值越大，越模糊。
-     *     threshold 表示人脸模糊度是否影响辨识的阈值。
+     * Face blur analysis result. Contains:
+     *     blurness: face blur analysis result.
+     * Each attribute contains the following fields:
+     *     value: float in [0,100] (3 decimals); higher means more blurred.
+     *     threshold: blur threshold above which recognition is affected.
      */
     @JsonProperty("blur")
     private FaceAttrBlur blur;
@@ -64,13 +70,13 @@ public class FaceAttributes {
     public static class FaceAttrSmile {
 
         /**
-         * 值为一个 [0,100] 的浮点数，小数点后3位有效数字。数值越大表示笑程度高
+         * Float in [0,100] (3 decimals); higher means a bigger smile.
          */
         @JsonProperty("value")
         private Float value;
 
         /**
-         * 代表笑容的阈值，超过该阈值认为有笑容
+         * Smile threshold above which a smile is detected.
          */
         @JsonProperty("threshold")
         private Float threshold;
@@ -82,19 +88,19 @@ public class FaceAttributes {
     public static class FaceAttrHeadpose {
 
         /**
-         * 摇头角度
+         * Yaw angle (turning left/right).
          */
         @JsonProperty("yaw_angle")
         private Float yaw;
 
         /**
-         * 抬头角度
+         * Pitch angle (looking up/down).
          */
         @JsonProperty("pitch_angle")
         private Float pitch;
 
         /**
-         * 旋转（平面旋转）角度
+         * Roll angle (in-plane rotation).
          */
         @JsonProperty("roll_angle")
         private Float roll;
@@ -107,19 +113,19 @@ public class FaceAttributes {
     public static class FaceAttrBlur {
 
         /**
-         * 摇头角度
+         * Yaw angle (turning left/right).
          */
         @JsonProperty("yaw_angle")
         private Float yaw;
 
         /**
-         * 抬头角度
+         * Pitch angle (looking up/down).
          */
         @JsonProperty("pitch_angle")
         private Float pitch;
 
         /**
-         * 旋转（平面旋转）角度
+         * Roll angle (in-plane rotation).
          */
         @JsonProperty("roll_angle")
         private Float roll;

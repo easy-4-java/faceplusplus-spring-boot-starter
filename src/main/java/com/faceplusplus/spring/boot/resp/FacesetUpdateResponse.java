@@ -25,16 +25,22 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper=false)
 @JsonInclude( JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = false)
+/**
+ * Model class for FacesetUpdateResponse.
+ *
+ * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 1.0.0
+ */
 public class FacesetUpdateResponse extends FaceppResponse {
 
 	/**
-	 * 1、FaceSet 的标识
+	 * Face recognition operations.The FaceSet token (faceset_token).
 	 */
 	@JsonProperty("faceset_token")
 	private String facesetToken;
 
 	/**
-	 * 2、用户自定义的 FaceSet 标识，如果未定义则返回值为空
+	 * 2、User-defined FaceSet id (outer_id); empty when not set.
 	 */
 	@JsonProperty("outer_id")
 	private String outerId;

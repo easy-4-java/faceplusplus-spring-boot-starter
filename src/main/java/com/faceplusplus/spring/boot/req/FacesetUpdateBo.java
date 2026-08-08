@@ -5,45 +5,51 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 /**
- * 人脸集合库
+ * FaceSet collection.
  */
 @JsonInclude( JsonInclude.Include.NON_NULL)
 @Data
+/**
+ * Model class for FacesetUpdateBo.
+ *
+ * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 1.0.0
+ */
 public class FacesetUpdateBo {
 
 
 	/**
-	 * FaceSet的标识
+	 * The FaceSet token (faceset_token).
 	 */
 	@JsonProperty("faceset_token")
 	private String faceToken;
 
 	/**
-	 * 账号下全局唯一的 FaceSet 自定义标识，可以用来管理 FaceSet 对象。最长255个字符，不能包括字符^@,&=*'"
+	 * Globally-unique custom FaceSet id (up to 255 chars; ^@,&=*'" are not allowed).
 	 */
 	@JsonProperty("outer_id")
 	private String outerId;
 
 	/**
-	 * 账号下全局唯一的 FaceSet 自定义标识，可以用来管理 FaceSet 对象。最长255个字符，不能包括字符^@,&=*'"
+	 * Globally-unique custom FaceSet id (up to 255 chars; ^@,&=*'" are not allowed).
 	 */
 	@JsonProperty("new_outer_id")
 	private String newOuterId;
 
 	/**
-	 * 人脸集合的名字，最长256个字符，不能包括字符^@,&=*'"
+	 * FaceSet display name (up to 256 chars; ^@,&=*'" are not allowed).
 	 */
 	@JsonProperty("display_name")
 	private String displayName;
 
 	/**
-	 * FaceSet 自定义标签组成的字符串，用来对 FaceSet 分组。最长255个字符，多个 tag 用逗号分隔，每个 tag 不能包括字符^@,&=*'"
+	 * Comma-separated custom tags used to group FaceSets (up to 255 chars; ^@,&=*'" are not allowed in each tag).
 	 */
 	@JsonProperty("tags")
 	private String tags;
 
 	/**
-	 * 自定义用户信息，不大于16 KB，不能包括字符^@,&=*'"
+	 * Custom user data (up to 16 KB; ^@,&=*'" are not allowed).
 	 */
 	@JsonProperty("user_data")
 	private String userData;

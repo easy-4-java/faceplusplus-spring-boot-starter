@@ -27,55 +27,61 @@ import java.util.List;
 @EqualsAndHashCode(callSuper=false)
 @JsonInclude( JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = false)
+/**
+ * Model class for FacesetDetailResponse.
+ *
+ * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 1.0.0
+ */
 public class FacesetDetailResponse extends FaceppResponse {
 
 	/**
-	 * 1、FaceSet 的标识
+	 * Face recognition operations.The FaceSet token (faceset_token).
 	 */
 	@JsonProperty("faceset_token")
 	private String facesetToken;
 
 	/**
-	 * 2、人脸集合的名字，最长256个字符，不能包括字符^@,&=*'"
+	 * 2、FaceSet display name (up to 256 chars; ^@,&=*'" are not allowed).
 	 */
 	@JsonProperty("display_name")
 	private String displayName;
 
 	/**
-	 * 3、FaceSet中的face_token总数量
+	 * 3. Total number of face_tokens in the FaceSet.
 	 */
 	@JsonProperty("face_count")
 	private Integer faceCount;
 
 	/**
-	 * 4、face_token的数组
-	 * 注：如果该 FaceSet 下没有 face_token，则返回空数组。
+	 * 4. Array of face_tokens.
+	 * Note: empty array when the FaceSet has no face_token.
 	 */
 	@JsonProperty("face_tokens")
 	private List<String> faceTokens;
 
 	/**
-	 * 5、FaceSet 自定义标签组成的字符串，用来对 FaceSet 分组。最长255个字符，多个 tag 用逗号分隔，每个 tag 不能包括字符^@,&=*'"
+	 * 5、Comma-separated custom tags used to group FaceSets (up to 255 chars; ^@,&=*'" are not allowed in each tag).
 	 */
 	@JsonProperty("tags")
 	private String tags;
 
 	/**
-	 * 6、用户自定义的 FaceSet 标识，如果未定义则返回值为空
+	 * 6、User-defined FaceSet id (outer_id); empty when not set.
 	 */
 	@JsonProperty("outer_id")
 	private String outerId;
 
 	/**
-	 * 7、自定义用户信息，不大于16 KB，不能包括字符^@,&=*'"
+	 * 7、Custom user data (up to 16 KB; ^@,&=*'" are not allowed).
 	 */
 	@JsonProperty("user_data")
 	private String userData;
 
 	/**
-	 * 8、用于进行下一次请求。返回值表示排在此次返回的所有 face_token 之后的下一个 face_token 的序号。
-	 * 如果返回此字段，则说明未返回完此 FaceSet 下的所有 face_token。可以将此字段的返回值，在下一次调用时传入 start 字段中，获取接下来的 face_token。
-	 * 如果没有返回该字段，则说明已经返回此 FaceSet 下的所有 face_token。
+	 * 8. Cursor for the next request; the index of the next face_token after those returned.
+	 * When present, more face_tokens remain; pass this value as start in the next call to fetch them.
+	 * When this field is absent, all face_tokens in the FaceSet have been returned.
 	 */
 	@JsonProperty("next")
 	private String next;

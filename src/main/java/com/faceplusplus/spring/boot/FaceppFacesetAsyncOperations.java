@@ -24,6 +24,12 @@ import java.io.IOException;
 import java.util.Map;
 import java.util.function.Consumer;
 
+/**
+ * Asynchronous FaceSet operations (extends FaceppFacesetOperations).
+ *
+ * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 1.0.0
+ */
 public class FaceppFacesetAsyncOperations extends FaceppFacesetOperations {
 
 	public FaceppFacesetAsyncOperations(FaceppTemplate faceppTemplate) {
@@ -31,13 +37,13 @@ public class FaceppFacesetAsyncOperations extends FaceppFacesetOperations {
 	}
 
 	/**
-	 * 1、人脸库管理相关接口 > 添加人脸（异步） API
-	 * 为一个已经创建的 FaceSet 添加人脸标识 face_token。一个 FaceSet 最多存储1,000个 face_token。
-	 * 注意：2017年8月16日后，一个 FaceSet 能够存储的 face_token 数量将从 1000 提升至 10000。
+	 * FaceSet management operations. > Add face (async) API.
+	 * Adds face_tokens to an existing FaceSet (up to 1000 face_tokens per FaceSet).
+	 * Note: since 16 Aug 2017 a FaceSet can hold up to 10000 face_tokens.
 	 * API：https://console.faceplusplus.com.cn/documents/40622166
-	 * @param facesetToken FaceSet的标识
-	 * @param faceTokens 人脸标识 face_token 组成的字符串，可以是一个或者多个，用逗号分隔。最多不超过5个face_token
-	 * @return 操作结果
+	 * @param facesetToken The FaceSet token (faceset_token).
+	 * @param faceTokens Comma-separated string of one or more face_tokens (up to 5).
+	 * @return the operation result
 	 */
 	public void asyncAddFaceWithToken(String facesetToken, String[] faceTokens, Consumer<FaceAddResponse> consumer) throws IOException {
 		String reqUrl = FaceppApiAddress.FACE_ADD_ASYNC.getUrl();
@@ -51,13 +57,13 @@ public class FaceppFacesetAsyncOperations extends FaceppFacesetOperations {
 	}
 
 	/**
-	 * 2、人脸库管理相关接口 > 添加人脸（异步） API
-	 * 为一个已经创建的 FaceSet 添加人脸标识 face_token。一个 FaceSet 最多存储1,000个 face_token。
-	 * 注意：2017年8月16日后，一个 FaceSet 能够存储的 face_token 数量将从 1000 提升至 10000。
+	 * 2. FaceSet management > Add face (async) API.
+	 * Adds face_tokens to an existing FaceSet (up to 1000 face_tokens per FaceSet).
+	 * Note: since 16 Aug 2017 a FaceSet can hold up to 10000 face_tokens.
 	 * API：https://console.faceplusplus.com.cn/documents/40622166
-	 * @param outerId 用户提供的FaceSet标识
-	 * @param faceTokens 人脸标识 face_token 组成的字符串，可以是一个或者多个，用逗号分隔。最多不超过5个face_token
-	 * @return 操作结果
+	 * @param outerId User-supplied FaceSet identifier (outer_id).
+	 * @param faceTokens Comma-separated string of one or more face_tokens (up to 5).
+	 * @return the operation result
 	 */
 	public void asyncAddFaceWithOuterId(String outerId, String[] faceTokens, Consumer<FaceAddResponse> consumer) throws IOException {
 		String reqUrl = FaceppApiAddress.FACE_ADD_ASYNC.getUrl();
@@ -71,13 +77,13 @@ public class FaceppFacesetAsyncOperations extends FaceppFacesetOperations {
 	}
 
 	/**
-	 * 3、人脸库管理相关接口 > 删除人脸（异步） API
-	 * 移除一个FaceSet中的某些或者全部face_token
+	 * 3. FaceSet management > Remove face (async) API.
+	 * Removes some or all face_tokens from a FaceSet.
 	 * API：https://console.faceplusplus.com.cn/documents/4888399
-	 * @param facesetToken FaceSet的标识
-	 * @param faceTokens 需要移除的人脸标识字符串，可以是一个或者多个face_token组成，用逗号分隔。最多不能超过1,000个face_token
-	 * 注：face_tokens字符串传入“RemoveAllFaceTokens”则会移除FaceSet内所有的face_token
-	 * @return 操作结果
+	 * @param facesetToken The FaceSet token (faceset_token).
+	 * @param faceTokens Comma-separated string of one or more face_tokens to remove (up to 1000).
+	 * Pass "RemoveAllFaceTokens" to remove all face_tokens in the FaceSet.
+	 * @return the operation result
 	 */
 	public void asyncRemoveFaceByToken(String facesetToken, String[] faceTokens, Consumer<FaceRemoveResponse> consumer) throws IOException {
 		String reqUrl = FaceppApiAddress.FACE_REMOVE_ASYNC.getUrl();
@@ -91,13 +97,13 @@ public class FaceppFacesetAsyncOperations extends FaceppFacesetOperations {
 	}
 
 	/**
-	 * 4、人脸库管理相关接口 > 删除人脸（异步） API
-	 * 移除一个FaceSet中的某些或者全部face_token
+	 * 4. FaceSet management > Remove face (async) API.
+	 * Removes some or all face_tokens from a FaceSet.
 	 * API：https://console.faceplusplus.com.cn/documents/40622169
-	 * @param outerId 用户提供的FaceSet标识
-	 * @param faceTokens 需要移除的人脸标识字符串，可以是一个或者多个face_token组成，用逗号分隔。最多不能超过1,000个face_token
-	 * 注：face_tokens字符串传入“RemoveAllFaceTokens”则会移除FaceSet内所有的face_token
-	 * @return 操作结果
+	 * @param outerId User-supplied FaceSet identifier (outer_id).
+	 * @param faceTokens Comma-separated string of one or more face_tokens to remove (up to 1000).
+	 * Pass "RemoveAllFaceTokens" to remove all face_tokens in the FaceSet.
+	 * @return the operation result
 	 */
 	public void asyncRemoveFaceByOuterId(String outerId, String[] faceTokens, Consumer<FaceRemoveResponse> consumer) throws IOException {
 		String reqUrl = FaceppApiAddress.FACE_REMOVE_ASYNC.getUrl();
@@ -111,12 +117,12 @@ public class FaceppFacesetAsyncOperations extends FaceppFacesetOperations {
 	}
 
 	/**
-	 * 5、人脸库管理相关接口 > 添加/删除人脸结果查询 API
-	 * 查询之前调用的异步添加/删除人脸请求，异步任务当前的状态
-	 * 注意：2017年8月16日后，一个 FaceSet 能够存储的 face_token 数量将从 1000 提升至 10000。
+	 * 5. FaceSet management > Async add/remove result query API.
+	 * Queries the current status of a previously submitted asynchronous add/remove faces task.
+	 * Note: since 16 Aug 2017 a FaceSet can hold up to 10000 face_tokens.
 	 * API：https://console.faceplusplus.com.cn/documents/40622157
-	 * @param taskId 异步任务的唯一标识
-	 * @return 操作结果
+	 * @param taskId Unique id of the asynchronous task.
+	 * @return the operation result
 	 */
 	public FaceStatusResponse getFaceStatusByTaskId(String taskId) throws IOException {
 		String reqUrl = FaceppApiAddress.FACE_STATUS_ASYNC.getUrl();

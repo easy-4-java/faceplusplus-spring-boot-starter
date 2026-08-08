@@ -27,54 +27,60 @@ import java.util.List;
 @EqualsAndHashCode(callSuper=false)
 @JsonInclude( JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = false)
+/**
+ * Model class for FaceStatusResponse.
+ *
+ * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 1.0.0
+ */
 public class FaceStatusResponse extends FaceppResponse {
 
 	/**
-	 * 1、标示当前异步请求的唯一task标识，之后调用任务状态查询接口时，使用当前值作为参数，如果发生错误，此字段不返回。
+	 * Unique task id of this asynchronous request; pass it to the task-status query API. Not returned on error.
 	 */
 	@JsonProperty("task_id")
 	private String taskId;
 
 	/**
-	 * 2、1: 标示当前异步任务已经完成
+	 * 2. Value 1 indicates the asynchronous task has completed.
 	 */
 	@JsonProperty("status")
 	private Integer status;
 
 	/**
-	 * 3、FaceSet 的标识
+	 * 3、The FaceSet token (faceset_token).
 	 */
 	@JsonProperty("faceset_token")
 	private String facesetToken;
 
 	/**
-	 * 4、用户自定义的 FaceSet 标识，如果未定义则返回值为空
+	 * 4、User-defined FaceSet id (outer_id); empty when not set.
 	 */
 	@JsonProperty("outer_id")
 	private String outerId;
 
 	/**
-	 * 5、成功加入 FaceSet 的 face_token 数量（如果当前任务类型为添加人脸，返回此字段）
+	 * 5. Number of face_tokens added (returned when the task type is add).
 	 */
 	@JsonProperty("face_added")
 	private Integer faceAdded;
 
 	/**
-	 * 6、成功从FaceSet中移除的face_token数量（如果当前任务类型为删除人脸，返回此字段）
+	 * 6. Number of face_tokens removed (returned when the task type is remove).
 	 */
 	@JsonProperty("face_removed")
 	private Integer faceRemoved;
 
 	/**
-	 * 7、操作结束后 FaceSet 中的 face_token 总数量
+	 * 7. Total number of face_tokens in the FaceSet after the operation.
 	 */
 	@JsonProperty("face_count")
 	private Integer faceCount;
 
 	/**
-	 * 8、无法被加入/删除FaceSet的face_token以及原因
-	 * face_token：人脸标识不存在
-	 * reason：不能被添加的原因，包括 INVALID_FACE_TOKEN 人脸标识不存在 ，QUOTA_EXCEEDED 已达到FaceSet存储上限
+	 * 8. face_tokens that could not be added/removed, with reasons.
+	 * face_token: the face identifier does not exist.
+	 * reason: reason the face could not be added - INVALID_FACE_TOKEN (face does not exist) or QUOTA_EXCEEDED (FaceSet full).
 	 */
 	@JsonProperty("failure_detail")
 	private List<FaceAddResponse.FailureFetail> detail;
@@ -84,13 +90,13 @@ public class FaceStatusResponse extends FaceppResponse {
 	public static class FailureFetail {
 
 		/**
-		 * 人脸标识
+		 * Face identifier (face_token).
 		 */
 		@JsonProperty("face_token")
 		private String token;
 
 		/**
-		 * 不能被添加的原因，包括 INVALID_FACE_TOKEN 人脸表示不存在 ，QUOTA_EXCEEDED 已达到 FaceSet 存储上限
+		 * Reason the face could not be added: INVALID_FACE_TOKEN (face does not exist) or QUOTA_EXCEEDED (FaceSet full).
 		 */
 		@JsonProperty("reason")
 		private String reason;

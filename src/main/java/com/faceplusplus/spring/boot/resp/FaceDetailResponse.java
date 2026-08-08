@@ -27,41 +27,47 @@ import java.util.List;
 @EqualsAndHashCode(callSuper=false)
 @JsonInclude( JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = false)
+/**
+ * Model class for FaceDetailResponse.
+ *
+ * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 1.0.0
+ */
 public class FaceDetailResponse extends FaceppResponse {
 
 	/**
-	 * 1、face_token所属图片在系统中的标识
+	 * System id of the image the face_token belongs to.
 	 */
 	@JsonProperty("image_id")
 	private String imageId;
 
 	/**
-	 * 2、人脸token
+	 * 2. The face_token.
 	 */
 	@JsonProperty("face_token")
 	private String faceToken;
 
 	/**
-	 * 3、用户自定义的标识信息
+	 * 3、User-defined identifier information.
 	 */
 	@JsonProperty("user_id")
 	private String userId;
 
 	/**
-	 * 3、人脸矩形框，坐标数字为整数，代表像素点坐标
-	 * top：矩形框左上角像素点的纵坐标
-	 * left：矩形框左上角像素点的横坐标
-	 * width：矩形框的宽度
-	 * height：矩形框的高度
+	 * 3. Face rectangle; integer pixel coordinates.
+	 * top: y-coordinate of the rectangle's top-left corner.
+	 * left: x-coordinate of the rectangle's top-left corner.
+	 * width: rectangle width.
+	 * height: rectangle height.
 	 */
 	@JsonProperty("face_rectangle")
 	private FaceRectangle faceRectangle;
 
 	/**
-	 * 5、包含该face_token的FaceSet数组
-	 * faceset_token：FaceSet的标识
-	 * outer_id：用户自定义的FaceSet标识，如果没有设置则值为空。
-	 * tags: 用户自定义的FaceSet标签，如果没有设置则值为空。
+	 * 5. FaceSets that contain this face_token.
+	 * faceset_token：The FaceSet token (faceset_token).
+	 * outer_id: user-defined FaceSet id; empty when not set.
+	 * tags: user-defined FaceSet tags; empty when not set.
 	 */
 	@JsonProperty("facesets")
 	private List<FaceSetFetail> facesets;

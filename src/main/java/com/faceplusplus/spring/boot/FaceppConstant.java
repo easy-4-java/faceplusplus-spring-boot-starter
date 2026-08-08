@@ -1,21 +1,23 @@
 package com.faceplusplus.spring.boot;
 
 /**
- * 声网相关的常量
- */
-public interface FaceppConstant {
+ * Constants for the Face++ / Agora integration.
+ *
+ * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 1.0.0
+ */public interface FaceppConstant {
 
-    // 获取频道内的所有用户
+    // Get all users in a channel.
     // https://api.agora.io/dev/v1/channel/user/{appid}/{channelName}
     String URL_CHANNEL_USER = "https://api.agora.io/dev/v1/channel/user/{0}/{1}";
 
-    // 用户禁封
+    // Ban a user.
     // https://api.agora.io/dev/v1/kicking-rule
     String URL_RULE = "https://api.agora.io/dev/v1/kicking-rule";
 
-    // 录制请求的uid
+    // Recording request uid.
     String RECORDING_UID = "10";
 
-    // 存储位置 /video/{{yyyy-MM-dd}}
+    // Storage path: /video/{{yyyy-MM-dd}}.
     String VEIDO_PAHT = "video";
 }

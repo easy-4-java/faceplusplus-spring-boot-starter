@@ -27,31 +27,37 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper=false)
 @JsonInclude( JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = false)
+/**
+ * Model class for FaceSkinAnalyzeResponse.
+ *
+ * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 1.0.0
+ */
 public class FaceSkinAnalyzeResponse extends FaceppResponse {
 
 	/**
-	 * 1、人脸矩形框，坐标数字为整数，代表像素点坐标
-	 * top：矩形框左上角像素点的纵坐标
-	 * left：矩形框左上角像素点的横坐标
-	 * width：矩形框的宽度
-	 * height：矩形框的高度
+	 * Face rectangle; integer pixel coordinates.
+	 * top: y-coordinate of the rectangle's top-left corner.
+	 * left: x-coordinate of the rectangle's top-left corner.
+	 * width: rectangle width.
+	 * height: rectangle height.
 	 */
 	@JsonProperty("face_rectangle")
 	private FaceRectangle faceRectangle;
 
 	/**
-	 * 2、人脸皮肤分析的结果，具体包含的返回值信息见下表
+	 * 2. Skin-analysis results (see the table below for fields).
 	 * https://console.faceplusplus.com.cn/documents/307316314
 	 */
 	@JsonProperty("result")
 	private JSONObject result;
 
 	/**
-	 * 3、表示影响计算结果的干扰因素.
-	 * 干扰因素可能有:
-	 *     imporper_headpose：头部角度不当 (判断条件roll,yaw,pitch超过[-45,45])
-	 * 当有影响因素存在时返回（有影响即返回相应字段）：["improper_headpose"]
-	 * 无影响因素的返回：[]
+	 * 3. Factors that may affect the result.
+	 * Possible influencing factors:
+	 *     improper_headpose: head pose out of range (roll/yaw/pitch outside [-45,45]).
+	 * Returned when an influencing factor exists: ["improper_headpose"].
+	 * Returned when there are no influencing factors: [].
 	 */
 	@JsonProperty("warning")
 	private JSONArray warning;

@@ -15,6 +15,12 @@
  */
 package com.faceplusplus.spring.boot;
 
+/**
+ * Asynchronous face-recognition operations (extends FaceppFaceOperations).
+ *
+ * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 1.0.0
+ */
 public class FaceppFaceAsyncOperations extends FaceppFaceOperations {
 
 	public FaceppFaceAsyncOperations(FaceppTemplate faceppTemplate) {

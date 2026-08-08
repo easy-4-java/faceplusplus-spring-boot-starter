@@ -5,11 +5,17 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import lombok.Data;
 
 /**
- * ons 多线程发送配置参数 corePoolSize 线程池核心池的大小 maximumPoolSize 线程池中允许的最大线程数量
- * keepAliveTime 当线程数大于核心时，此为终止前多余的空闲线程等待新任务的最长时间 unit keepAliveTime 的时间单位
+ * Face++ configuration properties.
+ * Thread-pool configuration used by the Face++ HTTP client.
  */
 @ConfigurationProperties(prefix = FaceppProperties.PREFIX)
 @Data
+/**
+ * Configuration properties for the Face++ integration.
+ *
+ * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 1.0.0
+ */
 public class FaceppProperties {
 
 	/**
@@ -17,26 +23,26 @@ public class FaceppProperties {
 	 */
 	public static final String PREFIX = "faceplusplus.facepp";
 
-	/** appId */
+	/** App id. */
 	private String host = "https://api-cn.faceplusplus.com";
-	/** appId */
+	/** App id. */
 	private String appId;
-	/** 证书 */
+	/** App certificate. */
 	private String appCertificate;
-	/** token过期时间 */
+	/** Token expiration time in seconds. */
 	private int expirationTimeInSeconds = 3600;
-	/** 声网restful登录key: 必填 */
+	/** RESTful login key (required). */
 	private String loginKey;
-	/** 声网restful登录密钥: 必填 */
+	/** RESTful login secret (required). */
 	private String loginSecret;
 
-	/** 录制区域选择 7-香港 10 -新加坡 */
+	/** Recording region: 7=Hong Kong, 10=Singapore. */
 	private Integer ossRegion;
 
-	/** 声网视频宽度 */
+	/** Video width. */
 	private Integer viewWidth;
 
-	/** 声网视频高度 */
+	/** Video height. */
 	private Integer viewHeight;
 
 }

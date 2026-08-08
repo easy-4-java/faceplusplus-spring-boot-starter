@@ -6,22 +6,28 @@ import lombok.Data;
 
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
+/**
+ * Model class for FaceSetFetail.
+ *
+ * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 1.0.0
+ */
 public class FaceSetFetail {
 
     /**
-     * FaceSet 的标识
+     * The FaceSet token (faceset_token).
      */
     @JsonProperty("faceset_token")
     private String facesetToken;
 
     /**
-     * FaceSet 自定义标签组成的字符串，用来对 FaceSet 分组。最长255个字符，多个 tag 用逗号分隔，每个 tag 不能包括字符^@,&=*'"
+     * Comma-separated custom tags used to group FaceSets (up to 255 chars; ^@,&=*'" are not allowed in each tag).
      */
     @JsonProperty("tags")
     private String tags;
 
     /**
-     * 用户自定义的 FaceSet 标识，如果未定义则返回值为空
+     * User-defined FaceSet id (outer_id); empty when not set.
      */
     @JsonProperty("outer_id")
     private String outerId;

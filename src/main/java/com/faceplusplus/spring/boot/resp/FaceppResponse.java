@@ -7,33 +7,39 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 /**
- * 响应结果
+ * Response result.
  */
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = false)
+/**
+ * Model class for FaceppResponse.
+ *
+ * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 1.0.0
+ */
 public class FaceppResponse {
 
 	/**
-	 * 响应状态码，200表示成功，非200表示失败
+	 * HTTP status code; 200 means success, otherwise failure.
 	 */
 	@JsonProperty("code")
 	private int code;
 
 	/**
-	 * 整个请求所花费的时间，单位为毫秒。除非发生404（API_NOT_FOUND )或403 （AUTHORIZATION_ERROR）错误，此字段必定返回
+	 * Total request time in milliseconds. Always returned except on 404 (API_NOT_FOUND) or 403 (AUTHORIZATION_ERROR).
 	 */
 	@JsonProperty("time_used")
 	private int timeUsed;
 
 	/**
-	 * 用于区分每一次请求的唯一的字符串。除非发生404（API_NOT_FOUND ) 或403 （AUTHORIZATION_ERROR）错误，此字段必定返回
+	 * Unique string identifying each request. Always returned except on 404 (API_NOT_FOUND) or 403 (AUTHORIZATION_ERROR).
 	 */
 	@JsonProperty("request_id")
 	private String requestId;
 
 	/**
-	 * 当请求失败时才会返回此字符串，具体返回内容见后续错误信息章节。否则此字段不存在
+	 * Returned only when the request fails (see the error-message section). Absent otherwise.
 	 */
 	@JsonProperty("error_message")
 	private String errorMsg;

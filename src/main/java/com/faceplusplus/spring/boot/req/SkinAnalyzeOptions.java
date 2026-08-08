@@ -6,52 +6,58 @@ import lombok.Builder;
 import lombok.Data;
 
 /**
- * 皮肤分析配置
+ * Skin-analysis options.
  */
 @JsonInclude( JsonInclude.Include.NON_NULL)
 @Data
 @Builder
+/**
+ * Model class for SkinAnalyzeOptions.
+ *
+ * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 1.0.0
+ */
 public class SkinAnalyzeOptions {
 
 
 	/**
-	 * 可通过该参数控制是否对传入图片中的人脸质量进行限制，可传入0和1：
+	 * Controls whether face quality is enforced on the input image (0 or 1):
 	 *
-	 *     1：进行人脸质量控制，若人脸质量不通过会返回INVALID_FACE_SIZE或INVALID_FACE_QUALITY。
-	 *     0：不进行人脸质量控制，只要能够检测到人脸则返回测肤结果。
+	 *     1: perform face quality control; returns INVALID_FACE_SIZE or INVALID_FACE_QUALITY when quality fails.
+	 *     0: no face quality control; return skin-analysis results as long as a face is detected.
 	 *
-	 * 该参数默认值为0。
-	 * 注意：若不进行人脸控制，则不能保证返回结果的准确性，请客户尽量保证传入图片的人脸质量（见：上方”图片要求“）。
+	 * Defaults to 0.
+	 * Note: without quality control accuracy is not guaranteed; provide high-quality face images (see "image requirements" above).
 	 */
 	@JsonProperty("face_quality_control")
 	private int faceQualityControl;
 
 	/**
-	 * 可通过该参数控制接口是否返回痘痘、闭口、色斑和痣的区域置信度，可传入0和1：
+	 * Controls whether region confidence for acne, closed comedones, dark spots and moles is returned (0 or 1):
 	 *
-	 *     1：返回区域置信度。
-	 *     0：不返回区域置信度。
+	 *     1: return region confidence.
+	 *     0: do not return region confidence.
 	 *
-	 * 该参数默认为0。
+	 * Defaults to 0.
 	 */
 	@JsonProperty("return_rect_confidence")
 	private int returnRectConfidence;
 
 	/**
-	 * 输入一个逗号分隔的字符串，内涵需要返回的皮肤问题检测图谱图片类型，目前支持的元素包含：
+	 * Comma-separated string of skin-analysis map types to return. Supported elements:
 	 *
-	 * -------元素--------------------描述---------------------------返回图片--------------
-	 * | red_area	| 红区图，可展示面部敏感、炎症引起的泛红区域 | 	白底红区图，红色深浅表征敏感程度
-	 * | brown_area	| 褐色区域图，可展示面部色素沉着区域	| 白底棕区图，棕色深浅表征色沉程度
-	 * | texture_enhanced_pores	| 面部毛孔粗大区域图	| 透明底PNG，标注毛孔粗大区域，图片大小与原图相同，可叠图查看
-	 * | texture_enhanced_blackheads| 	面部黑头区域图	| 透明底PNG，标注黑头区域，图片大小与原图相同，可叠图查看
-	 * | texture_enhanced_oily_area	| 面部油光区域图	| 透明底PNG，标注面部油光区域，图片大小与原图相同，可叠图查看
-	 * | texture_enhanced_lines	| 面部纹理图，标出面部比较明显的深纹、浅纹	| 透明底PNG，标注面部皱纹，图片大小与原图相同，可叠图查看
+	 * -------Element--------------------Description---------------------------Returned image--------------
+	 * | red_area | red-area map showing sensitivity/inflammation | white-background red-area image, darker red means more sensitivity
+	 * | brown_area | brown-area map showing facial pigmentation | white-background brown-area image, darker brown means more pigmentation
+	 * | texture_enhanced_pores | enlarged-pore map | transparent PNG marking enlarged pores, same size as the original, overlayable
+	 * | texture_enhanced_blackheads | blackhead map | transparent PNG marking blackheads, same size as the original, overlayable
+	 * | texture_enhanced_oily_area | oily-area map | transparent PNG marking oily areas, same size as the original, overlayable
+	 * | texture_enhanced_lines | facial texture map showing deep/shallow wrinkles | transparent PNG marking wrinkles, same size as the original, overlayable
 	 *
-	 * 元素会在将来更新拓展。
-	 * 输入样例："red_area, brown_area"
-	 * 若传入相应元素参数，接口会返回一张原图大小的图片，您可以后续与原图进行叠图操作查看效果。
-	 * 该输入默认为空字符串。
+	 * Fields may be extended in the future.
+	 * Example: "red_area, brown_area".
+	 * For each requested element the API returns an original-size image you can overlay on the source image.
+	 * Defaults to an empty string.
 	 */
 	@JsonProperty("return_maps")
 	private String returnMaps;

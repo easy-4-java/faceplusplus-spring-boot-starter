@@ -29,23 +29,29 @@ import java.util.List;
 @EqualsAndHashCode(callSuper=false)
 @JsonInclude( JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = false)
+/**
+ * Model class for FaceDetectResponse.
+ *
+ * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 1.0.0
+ */
 public class FaceDetectResponse extends FaceppResponse {
 
 	/**
-	 * 1、被检测的图片在系统中的标识
+	 * System id of the detected image.
 	 */
 	@JsonProperty("image_id")
 	private String imageId;
 
 	/**
-	 * 2、检测出的人脸个数
+	 * 2. Number of detected faces.
 	 */
 	@JsonProperty("face_num")
 	private Integer faceNum;
 
 	/**
-	 * 3、被检测出的人脸数组，具体包含内容见下文。
-	 * 注：如果没有检测出人脸则为空数组
+	 * 3. Array of detected faces (see fields below).
+	 * Note: empty array when no face is detected.
 	 */
 	@JsonProperty("faces")
 	private JSONArray faces;

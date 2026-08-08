@@ -27,37 +27,43 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper=false)
 @JsonInclude( JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = false)
+/**
+ * Model class for FaceSearchResponse.
+ *
+ * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 1.0.0
+ */
 public class FaceSearchResponse extends FaceppResponse {
 
 	/**
-	 * 1、搜索结果对象数组
-	 * 注：如果传入图片但图片中未检测到人脸，则无法进行人脸搜索，本字段不返回。
+	 * Array of search-result objects.
+	 * Note: not returned when the input image contains no detected face (search).
 	 */
 	@JsonProperty("results")
 	private JSONArray results;
 
 	/**
-	 * 2、一组用于参考的置信度阈值，包含以下三个字段。每个字段的值为一个 [0,100] 的浮点数，小数点后 3 位有效数字。
-	 *     1e-3：误识率为千分之一的置信度阈值；
-	 *     1e-4：误识率为万分之一的置信度阈值；
-	 *     1e-5：误识率为十万分之一的置信度阈值；
-	 * 如果置信值低于“千分之一”阈值则不建议认为是同一个人；如果置信值超过“十万分之一”阈值，则是同一个人的几率非常高。
-	 * 请注意：阈值不是静态的，每次比对返回的阈值不保证相同，所以没有持久化保存阈值的必要，更不要将当前调用返回的 confidence 与之前调用返回的阈值比较。
-	 * 注：如果传入图片但图片中未检测到人脸，则无法进行比对，本字段不返回。
+	 * 2. Reference confidence thresholds (three fields); each is a float in [0,100] (3 decimals).
+	 *     1e-3: confidence threshold at 0.1% false-accept rate.
+	 *     1e-4: confidence threshold at 0.01% false-accept rate.
+	 *     1e-5: confidence threshold at 0.001% false-accept rate.
+	 * Confidence below the 0.1% threshold suggests different people; above the 0.001% threshold strongly suggests the same person.
+	 * Note: thresholds are not static and may differ between calls; do not persist them or compare a confidence against a previously returned threshold.
+	 * Note: not returned when the input image contains no detected face (compare).
 	 */
 	@JsonProperty("thresholds")
 	private JSONObject thresholds;
 
 	/**
-	 * 3、通过 image_url、image_file 或 image_base64_ 传入的图片在系统中的标识。
-	 * 注：如果未传入图片，本字段不返回。
+	 * 3. System id of the image provided via image_url/image_file/image_base64.
+	 * Note: not returned when no image is provided.
 	 */
 	@JsonProperty("image_id")
 	private String imageId;
 
 	/**
-	 * 4、传入的图片中检测出的人脸数组，采用数组中的第一个人脸进行人脸搜索。
-	 * 注：如果未传入图片，本字段不返回。如果没有检测出人脸则为空数组
+	 * 4. Faces detected in the input image; the first one is used for the search.
+	 * Note: not returned when no image is provided; empty array when no face is detected.
 	 */
 	@JsonProperty("faces")
 	private JSONArray faces;

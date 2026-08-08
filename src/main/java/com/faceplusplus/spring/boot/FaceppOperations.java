@@ -19,10 +19,16 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * Tim 接口集成
+ * Face++ operation helpers.
  * https://cloud.tencent.com/document/product/269/42440
  */
 @Slf4j
+/**
+ * Base class for Face++ operation helpers.
+ *
+ * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 1.0.0
+ */
 public abstract class FaceppOperations {
 
 	protected FaceppTemplate faceppTemplate;

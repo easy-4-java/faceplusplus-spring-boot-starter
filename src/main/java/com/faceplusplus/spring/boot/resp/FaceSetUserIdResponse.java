@@ -25,16 +25,22 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper=false)
 @JsonInclude( JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = false)
+/**
+ * Model class for FaceSetUserIdResponse.
+ *
+ * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 1.0.0
+ */
 public class FaceSetUserIdResponse extends FaceppResponse {
 
 	/**
-	 * 1、人脸token
+	 * The face_token.
 	 */
 	@JsonProperty("face_token")
 	private String faceToken;
 
 	/**
-	 * 2、用户自定义的标识信息
+	 * 2、User-defined identifier information.
 	 */
 	@JsonProperty("user_id")
 	private String userId;

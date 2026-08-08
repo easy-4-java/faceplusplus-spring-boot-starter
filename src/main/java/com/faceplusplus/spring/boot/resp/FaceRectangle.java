@@ -6,28 +6,34 @@ import lombok.Data;
 
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
+/**
+ * Model class for FaceRectangle.
+ *
+ * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 1.0.0
+ */
 public class FaceRectangle {
 
     /**
-     * 矩形框左上角像素点的纵坐标
+     * y-coordinate of the rectangle's top-left corner.
      */
     @JsonProperty("top")
     private Integer top;
 
     /**
-     * 矩形框左上角像素点的横坐标
+     * x-coordinate of the rectangle's top-left corner.
      */
     @JsonProperty("left")
     private Integer left;
 
     /**
-     * 矩形框的宽度
+     * Rectangle width.
      */
     @JsonProperty("width")
     private Integer width;
 
     /**
-     * 矩形框的高度
+     * Rectangle height.
      */
     @JsonProperty("height")
     private Integer height;

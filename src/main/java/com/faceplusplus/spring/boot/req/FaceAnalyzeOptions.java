@@ -6,26 +6,32 @@ import lombok.Builder;
 import lombok.Data;
 
 /**
- * 人脸分析配置
+ * Face-analysis options.
  */
 @JsonInclude( JsonInclude.Include.NON_NULL)
 @Data
 @Builder
+/**
+ * Model class for FaceAnalyzeOptions.
+ *
+ * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 1.0.0
+ */
 public class FaceAnalyzeOptions {
 
 	/**
-	 * 是否检测并返回人脸关键点。合法值为：
-	 * 2 	检测。返回 106 个人脸关键点。
-	 * 1	检测。返回 83 个人脸关键点。
-	 * 0	检测
-	 * 注：本参数默认值为 0
+	 * Whether to detect and return face landmarks. Valid values:
+	 * 2: detect; returns 106 face landmarks.
+	 * 1: detect; returns 83 face landmarks.
+	 * 0: detect.
+	 * Note: defaults to 0.
 	 */
 	@JsonProperty("return_landmark")
     private int returnLandmark;
 
 	/**
-	 * 是否检测并返回根据人脸特征判断出的年龄、性别、情绪等属性。合法值为：
-	 * none	 不检测属性
+	 * Whether to detect and return attributes such as age, gender and emotion. Valid values:
+	 * none: do not detect attributes.
 	 *
 	 *     gender
 	 *     age
@@ -43,28 +49,28 @@ public class FaceAnalyzeOptions {
 	 *     chin_occlusion
 	 *     face_occlusion
 	 *
-	 * 希望检测并返回的属性。
+	 * Attributes to detect and return.
 	 *
-	 * 需要将属性组成一个用逗号分隔的字符串，属性之间的顺序没有要求。
+	 * Provide attributes as a comma-separated string (order does not matter).
 	 *
-	 * 关于各属性的详细描述，参见下文“返回值”说明的 "attributes" 部分。
+	 * See the "attributes" section below for attribute details.
 	 *
-	 * 注：在此参数中的传入参数smiling，对应在返回值的attributes中参数名为smile。在使用时请注意。
+	 * Note: the input attribute "smiling" maps to the response attribute "smile".
 	 *
-	 * 注：本参数默认值为 none
+	 * Note: defaults to none.
 	 */
 	@JsonProperty("return_attributes")
 	private String returnAttributes = "none";
 
 	/**
-	 * 颜值评分分数区间的最小值。默认为0
-	 * 注：默认颜值评分分数区间为0-100.可通过beauty_score_min和beauty_score_max来调节分数区间，满足您的场景需求。
+	 * Minimum beauty-score value. Defaults to 0.
+	 * Note: beauty score defaults to [0,100]; adjust with beauty_score_min/beauty_score_max.
 	 */
 	@JsonProperty("beauty_score_min")
 	private int beautyScoreMin = 0;
 
 	/**
-	 * 颜值评分分数区间的最大值。默认为100
+	 * Maximum beauty-score value. Defaults to 100.
 	 */
 	@JsonProperty("beauty_score_max")
 	private int beautyScoreMax = 100;

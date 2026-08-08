@@ -27,36 +27,42 @@ import java.util.List;
 @EqualsAndHashCode(callSuper=false)
 @JsonInclude( JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = false)
+/**
+ * Model class for FacesetCreateResponse.
+ *
+ * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 1.0.0
+ */
 public class FacesetCreateResponse extends FaceppResponse {
 
 	/**
-	 * 1、FaceSet 的标识
+	 * Face recognition operations.The FaceSet token (faceset_token).
 	 */
 	@JsonProperty("faceset_token")
 	private String facesetToken;
 
 	/**
-	 * 2、用户自定义的 FaceSet 标识，如果未定义则返回值为空
+	 * 2、User-defined FaceSet id (outer_id); empty when not set.
 	 */
 	@JsonProperty("outer_id")
 	private String outerId;
 
 	/**
-	 * 3、本次操作成功加入 FaceSet的face_token 数量
+	 * 3. Number of face_tokens successfully added to the FaceSet.
 	 */
 	@JsonProperty("face_added")
 	private Integer faceAdded;
 
 	/**
-	 * 4、操作结束后 FaceSet 中的 face_token 总数量
+	 * 4. Total number of face_tokens in the FaceSet after the operation.
 	 */
 	@JsonProperty("face_count")
 	private Integer faceCount;
 
 	/**
-	 * 5、无法被加入 FaceSet 的 face_token 以及原因
-	 * face_token：人脸标识
-	 * reason：不能被添加的原因，包括 INVALID_FACE_TOKEN 人脸表示不存在 ，QUOTA_EXCEEDED 已达到 FaceSet 存储上限
+	 * 5. face_tokens that could not be added, with reasons.
+	 * face_token：Face identifier (face_token).
+	 * reason：Reason the face could not be added: INVALID_FACE_TOKEN (face does not exist) or QUOTA_EXCEEDED (FaceSet full).
 	 */
 	@JsonProperty("failure_detail")
 	private List<FailureFetail> detail;
@@ -66,13 +72,13 @@ public class FacesetCreateResponse extends FaceppResponse {
 	public static class FailureFetail {
 
 		/**
-		 * 人脸标识
+		 * Face identifier (face_token).
 		 */
 		@JsonProperty("face_token")
 		private String token;
 
 		/**
-		 * 不能被添加的原因，包括 INVALID_FACE_TOKEN 人脸表示不存在 ，QUOTA_EXCEEDED 已达到 FaceSet 存储上限
+		 * Reason the face could not be added: INVALID_FACE_TOKEN (face does not exist) or QUOTA_EXCEEDED (FaceSet full).
 		 */
 		@JsonProperty("reason")
 		private String reason;

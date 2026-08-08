@@ -6,6 +6,12 @@ import lombok.extern.slf4j.Slf4j;
  * @author [@Loong Wan](https://github.com/loong10k)
  */
 @Slf4j
+/**
+ * Core template for invoking the Face++ APIs.
+ *
+ * @author [@Loong Wan](https://github.com/loong10k)
+ * @since 1.0.0
+ */
 public class FaceppTemplate {
 
 	private FaceppOkHttp3Template faceppOkHttp3Template;
