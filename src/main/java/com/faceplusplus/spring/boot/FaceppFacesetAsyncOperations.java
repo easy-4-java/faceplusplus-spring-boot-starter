@@ -27,7 +27,7 @@ import java.util.function.Consumer;
 /**
  * Asynchronous FaceSet operations (extends FaceppFacesetOperations).
  *
- * @author [@Loong Wan](https://github.com/loong10k)
+ * @author Loong Wan (https://github.com/loong10k)
  * @since 1.0.0
  */
 public class FaceppFacesetAsyncOperations extends FaceppFacesetOperations {

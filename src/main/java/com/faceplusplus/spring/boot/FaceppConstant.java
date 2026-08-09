@@ -3,7 +3,7 @@ package com.faceplusplus.spring.boot;
 /**
  * Constants for the Face++ / Agora integration.
  *
- * @author [@Loong Wan](https://github.com/loong10k)
+ * @author Loong Wan (https://github.com/loong10k)
  * @since 1.0.0
  */public interface FaceppConstant {
 

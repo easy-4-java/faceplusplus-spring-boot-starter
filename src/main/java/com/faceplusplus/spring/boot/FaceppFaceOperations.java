@@ -26,7 +26,7 @@ import java.util.Map;
 /**
  * Face recognition operations.
  *
- * @author [@Loong Wan](https://github.com/loong10k)
+ * @author Loong Wan (https://github.com/loong10k)
  * @since 1.0.0
  */public class FaceppFaceOperations extends FaceppOperations {
 

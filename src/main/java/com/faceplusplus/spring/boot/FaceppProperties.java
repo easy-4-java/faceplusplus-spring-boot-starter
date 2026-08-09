@@ -10,12 +10,6 @@ import lombok.Data;
  */
 @ConfigurationProperties(prefix = FaceppProperties.PREFIX)
 @Data
-/**
- * Configuration properties for the Face++ integration.
- *
- * @author [@Loong Wan](https://github.com/loong10k)
- * @since 1.0.0
- */
 public class FaceppProperties {
 
 	/**

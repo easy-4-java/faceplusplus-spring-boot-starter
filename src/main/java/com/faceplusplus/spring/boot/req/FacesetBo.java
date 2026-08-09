@@ -9,12 +9,6 @@ import lombok.Data;
  */
 @JsonInclude( JsonInclude.Include.NON_NULL)
 @Data
-/**
- * Model class for FacesetBo.
- *
- * @author [@Loong Wan](https://github.com/loong10k)
- * @since 1.0.0
- */
 public class FacesetBo {
 
 	/**

@@ -36,15 +36,9 @@ import java.util.function.Consumer;
 /**
  * OkHttp3 request template for the Face++ HTTP API.
  *
- * @author [@Loong Wan](https://github.com/loong10k)
+ * @author Loong Wan (https://github.com/loong10k)
  */
 @Slf4j
-/**
- * OkHttp3 request template for the Face++ HTTP API.
- *
- * @author [@Loong Wan](https://github.com/loong10k)
- * @since 1.0.0
- */
 public class FaceppOkHttp3Template implements InitializingBean {
 
 	public final static String APPLICATION_JSON_VALUE = "application/json";

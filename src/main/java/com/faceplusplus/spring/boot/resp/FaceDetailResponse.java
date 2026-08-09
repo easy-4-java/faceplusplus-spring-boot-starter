@@ -27,12 +27,6 @@ import java.util.List;
 @EqualsAndHashCode(callSuper=false)
 @JsonInclude( JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = false)
-/**
- * Model class for FaceDetailResponse.
- *
- * @author [@Loong Wan](https://github.com/loong10k)
- * @since 1.0.0
- */
 public class FaceDetailResponse extends FaceppResponse {
 
 	/**

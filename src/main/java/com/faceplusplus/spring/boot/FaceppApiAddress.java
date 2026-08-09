@@ -4,7 +4,7 @@ import java.text.MessageFormat;
 
 /**
  * https://console.faceplusplus.com.cn/documents/268763412
- * @author [@Loong Wan](https://github.com/loong10k)
+ * @author Loong Wan (https://github.com/loong10k)
  */
 public enum FaceppApiAddress {
 

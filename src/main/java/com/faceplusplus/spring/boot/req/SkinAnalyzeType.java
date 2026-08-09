@@ -7,7 +7,7 @@ import java.util.function.Function;
 /**
  * Model class for SkinAnalyzeType.
  *
- * @author [@Loong Wan](https://github.com/loong10k)
+ * @author Loong Wan (https://github.com/loong10k)
  * @since 1.0.0
  */
 public enum SkinAnalyzeType {

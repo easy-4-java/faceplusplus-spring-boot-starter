@@ -11,12 +11,6 @@ import lombok.Data;
 @JsonInclude( JsonInclude.Include.NON_NULL)
 @Data
 @Builder
-/**
- * Model class for FaceAnalyzeOptions.
- *
- * @author [@Loong Wan](https://github.com/loong10k)
- * @since 1.0.0
- */
 public class FaceAnalyzeOptions {
 
 	/**
