@@ -24,7 +24,7 @@ import static org.mockito.Mockito.when;
 /**
  * Tests for {@link FaceppFaceOperations} and {@link FaceppFacesetOperations}.
  *
- * @author Loong Wan (https://github.com/loong10k)
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
  */
 class FaceppOperationsTest {
 

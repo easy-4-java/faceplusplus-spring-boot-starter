@@ -36,7 +36,7 @@ import java.util.function.Consumer;
 /**
  * OkHttp3 request template for the Face++ HTTP API.
  *
- * @author Loong Wan (https://github.com/loong10k)
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
  */
 @Slf4j
 public class FaceppOkHttp3Template implements InitializingBean {

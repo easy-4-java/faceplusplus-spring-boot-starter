@@ -26,7 +26,7 @@ import lombok.extern.slf4j.Slf4j;
 /**
  * Base class for Face++ operation helpers.
  *
- * @author Loong Wan (https://github.com/loong10k)
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
  * @since 1.0.0
  */
 public abstract class FaceppOperations {
