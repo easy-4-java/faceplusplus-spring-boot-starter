@@ -11,6 +11,11 @@ import lombok.Data;
 @JsonInclude( JsonInclude.Include.NON_NULL)
 @Data
 @Builder
+/**
+ * <p>Auto-configuration for SkinAnalyzeOptions.</p>
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
+ * @since 1.0.0
+ */
 public class SkinAnalyzeOptions {
 
 

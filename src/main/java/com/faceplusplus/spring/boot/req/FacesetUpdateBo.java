@@ -9,6 +9,11 @@ import lombok.Data;
  */
 @JsonInclude( JsonInclude.Include.NON_NULL)
 @Data
+/**
+ * <p>Auto-configuration for FacesetUpdateBo.</p>
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
+ * @since 1.0.0
+ */
 public class FacesetUpdateBo {
 
 

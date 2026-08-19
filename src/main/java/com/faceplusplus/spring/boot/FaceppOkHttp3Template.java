@@ -39,6 +39,11 @@ import java.util.function.Consumer;
  * @author <a href="https://github.com/loong10k">Loong Wan</a>
  */
 @Slf4j
+/**
+ * <p>Auto-configuration for FaceppOkHttp3Template.</p>
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
+ * @since 1.0.0
+ */
 public class FaceppOkHttp3Template implements InitializingBean {
 
 	public final static String APPLICATION_JSON_VALUE = "application/json";
@@ -59,6 +64,9 @@ public class FaceppOkHttp3Template implements InitializingBean {
 	}
 
 	@Override
+	/**
+	 * <p>After properties set.</p>
+	 */
 	public void afterPropertiesSet() throws Exception {
 		// Request encoding; default UTF-8.
 		if (okhttp3Client == null) {
@@ -79,30 +87,81 @@ public class FaceppOkHttp3Template implements InitializingBean {
 		}
 	}
 
+	/**
+	 * <p>Post.</p>
+	 * @param url
+	 * @param rtClass
+	 * @return the result
+	 */
 	public <T extends FaceppResponse> T post(String url, Class<T> rtClass) throws IOException {
 		return this.doRequest(url, HttpMethod.POST, null, null, null, rtClass);
 	}
 
+	/**
+	 * <p>Post.</p>
+	 * @param url
+	 * @param params
+	 * @param rtClass
+	 * @return the result
+	 */
 	public <T extends FaceppResponse> T post(String url, Map<String, Object> params, Class<T> rtClass) throws IOException {
 		return this.doRequest(url, HttpMethod.POST, null, params, null, rtClass);
 	}
 
+	/**
+	 * <p>Post.</p>
+	 * @param url
+	 * @param headers
+	 * @param params
+	 * @param rtClass
+	 * @return the result
+	 */
 	public <T extends FaceppResponse> T post(String url, Map<String, Object> headers, Map<String, Object> params, Class<T> rtClass) throws IOException {
 		return this.doRequest(url, HttpMethod.POST, headers, params, null, rtClass);
 	}
 
+	/**
+	 * <p>Post.</p>
+	 * @param url
+	 * @param headers
+	 * @param params
+	 * @param bodyContent
+	 * @param rtClass
+	 * @return the result
+	 */
 	public <T extends FaceppResponse> T post(String url, Map<String, Object> headers, Map<String, Object> params, Map<String, Object> bodyContent, Class<T> rtClass) throws IOException {
 		return this.doRequest(url, HttpMethod.POST, headers, params, bodyContent, rtClass);
 	}
 
+	/**
+	 * <p>Get.</p>
+	 * @param url
+	 * @param rtClass
+	 * @return the result
+	 */
 	public <T extends FaceppResponse> T get(String url, Class<T> rtClass) throws IOException {
 		return this.doRequest(url, HttpMethod.GET, null, null, null, rtClass);
 	}
 
+	/**
+	 * <p>Get.</p>
+	 * @param url
+	 * @param params
+	 * @param rtClass
+	 * @return the result
+	 */
 	public <T extends FaceppResponse> T get(String url, Map<String, Object> params, Class<T> rtClass) throws IOException {
 		return this.doRequest(url, HttpMethod.GET, null, params, null, rtClass);
 	}
 
+	/**
+	 * <p>Get.</p>
+	 * @param url
+	 * @param headers
+	 * @param params
+	 * @param rtClass
+	 * @return the result
+	 */
 	public <T extends FaceppResponse> T get(String url, Map<String, Object> headers, Map<String, Object> params, Class<T> rtClass) throws IOException {
 		return this.doRequest(url, HttpMethod.GET, headers, params, null, rtClass);
 	}
@@ -382,6 +441,11 @@ public class FaceppOkHttp3Template implements InitializingBean {
 		okhttp3Client.newCall(builder.build()).enqueue(new Callback() {
 
 			@Override
+			/**
+			 * <p>On failure.</p>
+			 * @param call
+			 * @param e
+			 */
 			public void onFailure(Call call, IOException e) {
 				log.error("Agora >> Async Request Failure : {}, use time : {} ", e.getMessage(), System.currentTimeMillis() - startTime);
 				if (Objects.nonNull(failure)) {
@@ -390,6 +454,11 @@ public class FaceppOkHttp3Template implements InitializingBean {
 			}
 
 			@Override
+			/**
+			 * <p>On response.</p>
+			 * @param call
+			 * @param response
+			 */
 			public void onResponse(Call call, Response response) {
 				if (response.isSuccessful()) {
 					log.info("Agora >> Async Request Success : code : {}, use time : {} ", response.code(), System.currentTimeMillis() - startTime);
@@ -404,6 +473,7 @@ public class FaceppOkHttp3Template implements InitializingBean {
 		});
 	}
 
+	/** @return return the http url. */
 	public HttpUrl getHttpUrl(String httpUrl, Map<String, Object> params) {
 		log.info("Agora >> Request Url : {}", httpUrl);
 		HttpUrl.Builder urlBuilder = HttpUrl.parse(httpUrl).newBuilder();
@@ -446,6 +516,12 @@ public class FaceppOkHttp3Template implements InitializingBean {
 		return builder;
 	}
 
+	/**
+	 * <p>Read value.</p>
+	 * @param json
+	 * @param cls
+	 * @return the result
+	 */
 	public <T extends FaceppResponse> T readValue(String json, Class<T> cls) {
 		try {
 			return JSONObject.parseObject(json, cls);
@@ -456,6 +532,11 @@ public class FaceppOkHttp3Template implements InitializingBean {
 		}
 	}
 
+	/**
+	 * <p>Auto-configuration for HttpMethod.</p>
+	 * @author <a href="https://github.com/loong10k">Loong Wan</a>
+	 * @since 1.0.0
+	 */
 	public static enum HttpMethod {
 
 		/**
@@ -515,6 +596,7 @@ public class FaceppOkHttp3Template implements InitializingBean {
 			this.function = function;
 		}
 
+		/** @return return the name. */
 		public String getName() {
 			return name;
 		}
@@ -527,6 +609,7 @@ public class FaceppOkHttp3Template implements InitializingBean {
 			return function.apply(builder, null);
 		}
 
+		/** @return return the by name. */
 		public static HttpMethod getByName(int name) {
 			for (HttpMethod type : HttpMethod.values()) {
 				if (type.getName().equals(name)) {
@@ -538,6 +621,7 @@ public class FaceppOkHttp3Template implements InitializingBean {
 
 	}
 
+	/** @return return the object mapper. */
 	public ObjectMapper getObjectMapper() {
 		return objectMapper;
 	}

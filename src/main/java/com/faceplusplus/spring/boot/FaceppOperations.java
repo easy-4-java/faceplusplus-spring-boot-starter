@@ -37,14 +37,17 @@ public abstract class FaceppOperations {
 		this.faceppTemplate = faceppTemplate;
 	}
 
+	/** @return return the facepp properties. */
 	protected FaceppProperties getFaceppProperties() {
 		return faceppTemplate.getFaceppProperties();
 	}
 
+	/** @return return the facepp ok http3 template. */
 	protected FaceppOkHttp3Template getFaceppOkHttp3Template(){
 		return faceppTemplate.getFaceppOkHttp3Template();
 	}
 
+	/** @return return the object mapper. */
 	protected ObjectMapper getObjectMapper(){
 		return faceppTemplate.getFaceppOkHttp3Template().getObjectMapper();
 	}

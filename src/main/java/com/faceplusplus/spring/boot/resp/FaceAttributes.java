@@ -6,6 +6,11 @@ import lombok.Data;
 
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
+/**
+ * <p>Auto-configuration for FaceAttributes.</p>
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
+ * @since 1.0.0
+ */
 public class FaceAttributes {
 
     /**
@@ -51,6 +56,11 @@ public class FaceAttributes {
 
     @Data
     @JsonInclude(JsonInclude.Include.NON_NULL)
+    /**
+     * <p>Auto-configuration for FaceAttrValue.</p>
+     * @author <a href="https://github.com/loong10k">Loong Wan</a>
+     * @since 1.0.0
+     */
     public static class FaceAttrValue {
 
         @JsonProperty("value")
@@ -61,6 +71,11 @@ public class FaceAttributes {
 
     @Data
     @JsonInclude(JsonInclude.Include.NON_NULL)
+    /**
+     * <p>Auto-configuration for FaceAttrSmile.</p>
+     * @author <a href="https://github.com/loong10k">Loong Wan</a>
+     * @since 1.0.0
+     */
     public static class FaceAttrSmile {
 
         /**
@@ -79,6 +94,11 @@ public class FaceAttributes {
 
     @Data
     @JsonInclude(JsonInclude.Include.NON_NULL)
+    /**
+     * <p>Auto-configuration for FaceAttrHeadpose.</p>
+     * @author <a href="https://github.com/loong10k">Loong Wan</a>
+     * @since 1.0.0
+     */
     public static class FaceAttrHeadpose {
 
         /**
@@ -104,6 +124,11 @@ public class FaceAttributes {
 
     @Data
     @JsonInclude(JsonInclude.Include.NON_NULL)
+    /**
+     * <p>Auto-configuration for FaceAttrBlur.</p>
+     * @author <a href="https://github.com/loong10k">Loong Wan</a>
+     * @since 1.0.0
+     */
     public static class FaceAttrBlur {
 
         /**

@@ -12,6 +12,11 @@ import lombok.Data;
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = false)
+/**
+ * <p>Auto-configuration for FaceppResponse.</p>
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
+ * @since 1.0.0
+ */
 public class FaceppResponse {
 
 	/**
@@ -38,6 +43,7 @@ public class FaceppResponse {
 	@JsonProperty("error_message")
 	private String errorMsg;
 
+	/** @return return whether success is enabled. */
 	public boolean isSuccess() {
 		return code == 200;
 	}

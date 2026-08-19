@@ -218,18 +218,22 @@ public enum FaceppApiAddress {
 		this.url = url;
 	}
 
+	/** @return return the opt. */
 	public String getOpt() {
 		return opt;
 	}
 
+	/** @return return the method. */
 	public RequestMethod getMethod() {
 		return method;
 	}
 
+	/** @return return the url. */
 	public String getUrl() {
 		return url;
 	}
 
+	/** @return return the url. */
 	public String getUrl(Object ...args) {
 		return MessageFormat.format(url, args);
 	}

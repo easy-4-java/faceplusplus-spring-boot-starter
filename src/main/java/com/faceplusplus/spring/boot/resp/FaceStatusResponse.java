@@ -27,6 +27,11 @@ import java.util.List;
 @EqualsAndHashCode(callSuper=false)
 @JsonInclude( JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = false)
+/**
+ * <p>Auto-configuration for FaceStatusResponse.</p>
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
+ * @since 1.0.0
+ */
 public class FaceStatusResponse extends FaceppResponse {
 
 	/**
@@ -81,6 +86,11 @@ public class FaceStatusResponse extends FaceppResponse {
 
 	@Data
 	@JsonInclude(JsonInclude.Include.NON_NULL)
+	/**
+	 * <p>Auto-configuration for FailureFetail.</p>
+	 * @author <a href="https://github.com/loong10k">Loong Wan</a>
+	 * @since 1.0.0
+	 */
 	public static class FailureFetail {
 
 		/**

@@ -28,6 +28,7 @@ public enum SkinAnalyzeType {
         this.function = function;
     }
 
+    /** @return return the api address. */
     public FaceppApiAddress getApiAddress(){
         return function.apply(this);
     }

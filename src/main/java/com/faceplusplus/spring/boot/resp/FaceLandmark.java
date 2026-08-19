@@ -6,6 +6,11 @@ import lombok.Data;
 
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
+/**
+ * <p>Auto-configuration for FaceLandmark.</p>
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
+ * @since 1.0.0
+ */
 public class FaceLandmark {
 
     /**

@@ -27,6 +27,11 @@ import java.util.List;
 @EqualsAndHashCode(callSuper=false)
 @JsonInclude( JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = false)
+/**
+ * <p>Auto-configuration for FacesetListResponse.</p>
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
+ * @since 1.0.0
+ */
 public class FacesetListResponse extends FaceppResponse {
 
 	/**
@@ -46,6 +51,11 @@ public class FacesetListResponse extends FaceppResponse {
 
 	@Data
 	@JsonInclude(JsonInclude.Include.NON_NULL)
+	/**
+	 * <p>Auto-configuration for FacesetFetail.</p>
+	 * @author <a href="https://github.com/loong10k">Loong Wan</a>
+	 * @since 1.0.0
+	 */
 	public static class FacesetFetail {
 
 		/**

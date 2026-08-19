@@ -10,6 +10,11 @@ import lombok.Data;
  */
 @ConfigurationProperties(prefix = FaceppProperties.PREFIX)
 @Data
+/**
+ * <p>Auto-configuration for FaceppProperties.</p>
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
+ * @since 1.0.0
+ */
 public class FaceppProperties {
 
 	/**
