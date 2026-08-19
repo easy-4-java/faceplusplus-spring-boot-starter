@@ -166,6 +166,17 @@ public class FaceppOkHttp3Template implements InitializingBean {
 		return this.doRequest(url, HttpMethod.GET, headers, params, null, rtClass);
 	}
 
+	/**
+	 * <p>do request.</p>
+	 * @param url the url
+	 * @param method the method
+	 * @param headers the headers
+	 * @param queryParams the query params
+	 * @param bodyContent the body content
+	 * @param rtClass the rt class
+	 * @return the doRequest return value
+	 * @throws IOException if a ioexception occurs
+	 */
 	public <T extends FaceppResponse> T doRequest(
 			String url,
 			HttpMethod method,
@@ -179,6 +190,17 @@ public class FaceppOkHttp3Template implements InitializingBean {
 		return this.doRequest(startTime, httpUrl, method, headers, bodyContent, rtClass);
 	}
 
+	/**
+	 * <p>do request.</p>
+	 * @param startTime the start time
+	 * @param httpUrl the http url
+	 * @param method the method
+	 * @param headers the headers
+	 * @param bodyContent the body content
+	 * @param rtClass the rt class
+	 * @return the doRequest return value
+	 * @throws IOException if a ioexception occurs
+	 */
 	public <T extends FaceppResponse> T doRequest(
 			long startTime,
 			HttpUrl httpUrl,
@@ -205,12 +227,27 @@ public class FaceppOkHttp3Template implements InitializingBean {
 		return res;
 	}
 
+	/**
+	 * <p>do request.</p>
+	 * @param url the url
+	 * @param method the method
+	 * @return the doRequest return value
+	 * @throws IOException if a ioexception occurs
+	 */
 	public Response doRequest(
 			String url,
 			HttpMethod method) throws IOException {
 		return this.doRequest(url, method, null);
 	}
 
+	/**
+	 * <p>do request.</p>
+	 * @param url the url
+	 * @param method the method
+	 * @param queryParams the query params
+	 * @return the doRequest return value
+	 * @throws IOException if a ioexception occurs
+	 */
 	public Response doRequest(
 			String url,
 			HttpMethod method,
@@ -218,6 +255,15 @@ public class FaceppOkHttp3Template implements InitializingBean {
 		return this.doRequest(url, method, null, queryParams);
 	}
 
+	/**
+	 * <p>do request.</p>
+	 * @param url the url
+	 * @param method the method
+	 * @param headers the headers
+	 * @param queryParams the query params
+	 * @return the doRequest return value
+	 * @throws IOException if a ioexception occurs
+	 */
 	public Response doRequest(
 			String url,
 			HttpMethod method,
@@ -226,6 +272,16 @@ public class FaceppOkHttp3Template implements InitializingBean {
 		return this.doRequest(url, method, headers, queryParams, null);
 	}
 
+	/**
+	 * <p>do request.</p>
+	 * @param url the url
+	 * @param method the method
+	 * @param headers the headers
+	 * @param queryParams the query params
+	 * @param bodyContent the body content
+	 * @return the doRequest return value
+	 * @throws IOException if a ioexception occurs
+	 */
 	public Response doRequest(
 			String url,
 			HttpMethod method,
@@ -236,6 +292,17 @@ public class FaceppOkHttp3Template implements InitializingBean {
 		return this.doRequest(startTime, url, method, headers, queryParams, bodyContent);
 	}
 
+	/**
+	 * <p>do request.</p>
+	 * @param startTime the start time
+	 * @param url the url
+	 * @param method the method
+	 * @param headers the headers
+	 * @param queryParams the query params
+	 * @param bodyContent the body content
+	 * @return the doRequest return value
+	 * @throws IOException if a ioexception occurs
+	 */
 	public Response doRequest(
 			long startTime,
 			String url,
@@ -248,6 +315,14 @@ public class FaceppOkHttp3Template implements InitializingBean {
 		return this.doRequest(startTime, httpUrl, method, headers, bodyContent);
 	}
 
+	/**
+	 * <p>do part request.</p>
+	 * @param httpUrl the http url
+	 * @param params the params
+	 * @param rtClass the rt class
+	 * @return the doPartRequest return value
+	 * @throws IOException if a ioexception occurs
+	 */
 	public <T extends FaceppResponse> T doPartRequest(
 			String httpUrl,
 			Map<String, Object> params,
@@ -273,6 +348,14 @@ public class FaceppOkHttp3Template implements InitializingBean {
 		return res;
 	}
 
+	/**
+	 * <p>do part request.</p>
+	 * @param startTime the start time
+	 * @param httpUrl the http url
+	 * @param params the params
+	 * @return the doPartRequest return value
+	 * @throws IOException if a ioexception occurs
+	 */
 	public Response doPartRequest(
 			long startTime,
 			String httpUrl,
@@ -307,6 +390,16 @@ public class FaceppOkHttp3Template implements InitializingBean {
 		return null;
 	}
 
+	/**
+	 * <p>do request.</p>
+	 * @param startTime the start time
+	 * @param httpUrl the http url
+	 * @param method the method
+	 * @param headers the headers
+	 * @param bodyContent the body content
+	 * @return the doRequest return value
+	 * @throws IOException if a ioexception occurs
+	 */
 	public Response doRequest(
 			long startTime,
 			HttpUrl httpUrl,
@@ -330,6 +423,14 @@ public class FaceppOkHttp3Template implements InitializingBean {
 		}
 	}
 
+	/**
+	 * <p>do async request.</p>
+	 * @param url the url
+	 * @param method the method
+	 * @param success the success
+	 * @param rtClass the rt class
+	 * @throws IOException if a ioexception occurs
+	 */
 	public <T extends FaceppResponse> void doAsyncRequest(
 			String url,
 			HttpMethod method,
@@ -338,6 +439,15 @@ public class FaceppOkHttp3Template implements InitializingBean {
 		this.doAsyncRequest(url, method, success, null, rtClass);
 	}
 
+	/**
+	 * <p>do async request.</p>
+	 * @param url the url
+	 * @param method the method
+	 * @param success the success
+	 * @param failure the failure
+	 * @param rtClass the rt class
+	 * @throws IOException if a ioexception occurs
+	 */
 	public <T extends FaceppResponse> void doAsyncRequest(
 			String url,
 			HttpMethod method,
@@ -347,6 +457,16 @@ public class FaceppOkHttp3Template implements InitializingBean {
 		this.doAsyncRequest(url, method, null, success, failure, rtClass);
 	}
 
+	/**
+	 * <p>do async request.</p>
+	 * @param url the url
+	 * @param method the method
+	 * @param queryParams the query params
+	 * @param success the success
+	 * @param failure the failure
+	 * @param rtClass the rt class
+	 * @throws IOException if a ioexception occurs
+	 */
 	public <T extends FaceppResponse> void doAsyncRequest(
 			String url,
 			HttpMethod method,
@@ -357,6 +477,17 @@ public class FaceppOkHttp3Template implements InitializingBean {
 		this.doAsyncRequest(url, method, null, queryParams, success, failure, rtClass);
 	}
 
+	/**
+	 * <p>do async request.</p>
+	 * @param url the url
+	 * @param method the method
+	 * @param headers the headers
+	 * @param queryParams the query params
+	 * @param success the success
+	 * @param failure the failure
+	 * @param rtClass the rt class
+	 * @throws IOException if a ioexception occurs
+	 */
 	public <T extends FaceppResponse> void doAsyncRequest(
 			String url,
 			HttpMethod method,
@@ -368,6 +499,18 @@ public class FaceppOkHttp3Template implements InitializingBean {
 		this.doAsyncRequest(url, method, headers, queryParams, null, success, failure, rtClass);
 	}
 
+	/**
+	 * <p>do async request.</p>
+	 * @param url the url
+	 * @param method the method
+	 * @param headers the headers
+	 * @param queryParams the query params
+	 * @param bodyContent the body content
+	 * @param success the success
+	 * @param failure the failure
+	 * @param rtClass the rt class
+	 * @throws IOException if a ioexception occurs
+	 */
 	public <T extends FaceppResponse> void doAsyncRequest(
 			String url,
 			HttpMethod method,
@@ -383,6 +526,18 @@ public class FaceppOkHttp3Template implements InitializingBean {
 		this.doAsyncRequest(startTime, httpUrl, method, headers, bodyContent, success, failure, rtClass);
 	}
 
+	/**
+	 * <p>do async request.</p>
+	 * @param startTime the start time
+	 * @param httpUrl the http url
+	 * @param method the method
+	 * @param headers the headers
+	 * @param bodyContent the body content
+	 * @param success the success
+	 * @param failure the failure
+	 * @param rtClass the rt class
+	 * @throws IOException if a ioexception occurs
+	 */
 	public <T extends FaceppResponse> void doAsyncRequest(
 			long startTime,
 			HttpUrl httpUrl,
@@ -413,6 +568,18 @@ public class FaceppOkHttp3Template implements InitializingBean {
 		}, failure);
 	}
 
+	/**
+	 * <p>do async request.</p>
+	 * @param startTime the start time
+	 * @param url the url
+	 * @param method the method
+	 * @param headers the headers
+	 * @param queryParams the query params
+	 * @param bodyContent the body content
+	 * @param success the success
+	 * @param failure the failure
+	 * @throws IOException if a ioexception occurs
+	 */
 	public <T extends FaceppResponse> void doAsyncRequest(
 			long startTime,
 			String url,
@@ -427,6 +594,17 @@ public class FaceppOkHttp3Template implements InitializingBean {
 		this.doAsyncRequest(startTime, httpUrl, method, headers, bodyContent, success, failure);
 	}
 
+	/**
+	 * <p>do async request.</p>
+	 * @param startTime the start time
+	 * @param httpUrl the http url
+	 * @param method the method
+	 * @param headers the headers
+	 * @param bodyContent the body content
+	 * @param success the success
+	 * @param failure the failure
+	 * @throws IOException if a ioexception occurs
+	 */
 	public <T extends FaceppResponse> void doAsyncRequest(
 			long startTime,
 			HttpUrl httpUrl,
@@ -491,6 +669,15 @@ public class FaceppOkHttp3Template implements InitializingBean {
 		return urlBuilder.build();
 	}
 
+	/**
+	 * <p>create request builder.</p>
+	 * @param httpUrl the http url
+	 * @param method the method
+	 * @param headers the headers
+	 * @param bodyContent the body content
+	 * @return the createRequestBuilder return value
+	 * @throws IOException if a ioexception occurs
+	 */
 	public Request.Builder createRequestBuilder(HttpUrl httpUrl,
 												  HttpMethod method,
 												  Map<String, Object> headers,
@@ -601,10 +788,21 @@ public class FaceppOkHttp3Template implements InitializingBean {
 			return name;
 		}
 
+		/**
+		 * <p>apply.</p>
+		 * @param builder the builder
+		 * @param bodyStr the body str
+		 * @return the apply return value
+		 */
 		public Request.Builder apply(Request.Builder builder, String bodyStr){
 			return function.apply(builder, bodyStr);
 		}
 
+		/**
+		 * <p>apply.</p>
+		 * @param builder the builder
+		 * @return the apply return value
+		 */
 		public Request.Builder apply(Request.Builder builder){
 			return function.apply(builder, null);
 		}

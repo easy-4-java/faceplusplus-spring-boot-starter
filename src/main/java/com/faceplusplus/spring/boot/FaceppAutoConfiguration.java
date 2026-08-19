@@ -22,6 +22,13 @@ import okhttp3.OkHttpClient;
  */
 public class FaceppAutoConfiguration {
 
+	/**
+	 * <p>agora ok http3template.</p>
+	 * @param okhttp3ClientProvider the okhttp3client provider
+	 * @param objectMapperProvider the object mapper provider
+	 * @param poolProperties the pool properties
+	 * @return the agoraOkHttp3Template return value
+	 */
 	@Bean
 	public FaceppOkHttp3Template agoraOkHttp3Template(ObjectProvider<OkHttpClient> okhttp3ClientProvider,
 													  ObjectProvider<ObjectMapper> objectMapperProvider,
@@ -42,6 +49,12 @@ public class FaceppAutoConfiguration {
 		return new FaceppOkHttp3Template(okhttp3Client, objectMapper, poolProperties);
 	}
 
+	/**
+	 * <p>agora template.</p>
+	 * @param faceppOkHttp3Template the facepp ok http3template
+	 * @param poolProperties the pool properties
+	 * @return the agoraTemplate return value
+	 */
 	@Bean
 	public FaceppTemplate agoraTemplate(FaceppOkHttp3Template faceppOkHttp3Template,
 										FaceppProperties poolProperties) {
